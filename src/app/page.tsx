@@ -5,53 +5,32 @@ import FadeIn from "@/components/FadeIn";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import HeroSection from "@/components/HeroSection";
 import TiltCard from "@/components/TiltCard";
+import TweetWall from "@/components/TweetWall";
+import TargetIcon from "@/components/icons/target-icon";
+import ChartLineIcon from "@/components/icons/chart-line-icon";
+import BrainCircuitIcon from "@/components/icons/brain-circuit-icon";
+import ChartBarIcon from "@/components/icons/chart-bar-icon";
 
 const skills = [
   {
     title: "Product Strategy",
     items: ["Roadmapping", "Discovery", "PRDs", "RICE", "JTBD", "Stakeholder Management"],
-    icon: (
-      <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="8" cy="28" r="2.5" />
-        <circle cx="18" cy="18" r="2.5" />
-        <circle cx="28" cy="22" r="2.5" />
-        <circle cx="38" cy="10" r="2.5" />
-        <path d="M10 26.5l6-6.5M20.5 19.5l6 1.5M30.5 20.5l6-9" />
-      </svg>
-    ),
+    icon: <TargetIcon size={40} strokeWidth={1.8} />,
   },
   {
     title: "Growth & Experimentation",
     items: ["A/B Testing", "CRO", "Funnel Analysis", "Device Segmentation", "Usability Testing"],
-    icon: (
-      <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M14 4v16l-9 14h30L26 20V4" />
-        <path d="M12 4h16" />
-        <path d="M16 24c2-2 6-2 8 0" />
-      </svg>
-    ),
+    icon: <ChartLineIcon size={40} strokeWidth={1.8} />,
   },
   {
     title: "AI & Automation",
     items: ["AI Agent Building", "Prompt Engineering", "MCP", "Claude Code", "FastAPI"],
-    icon: (
-      <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="10" y="10" width="20" height="20" rx="3" />
-        <rect x="15" y="15" width="10" height="10" rx="1.5" />
-        <path d="M15 4v6M25 4v6M15 30v6M25 30v6M4 15h6M4 25h6M30 15h6M30 25h6" />
-      </svg>
-    ),
+    icon: <BrainCircuitIcon size={40} strokeWidth={1.8} />,
   },
   {
     title: "Analytics",
     items: ["Mixpanel", "Holistics", "Microsoft Clarity", "Google Analytics", "GTM"],
-    icon: (
-      <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="3" y="4" width="34" height="26" rx="3" />
-        <path d="M3 32h34M16 36h8" />
-        <path d="M10 24l6-8 5 5 6-10 5 6" />
-      </svg>
-    ),
+    icon: <ChartBarIcon size={40} strokeWidth={1.8} />,
   },
 ]
 
@@ -143,7 +122,7 @@ export default function Home() {
                   <TiltCard>
                     <div className="relative bg-white rounded-xl p-6 border border-dashed border-[#e4e4e7] hover:shadow-md hover:border-[#2563eb]/30 transition-all duration-300 h-full">
                       <CornerPlus />
-                      <div className="w-10 h-10 mb-4 text-[#09090b]">
+                      <div className="w-10 h-10 mb-4">
                         {skill.icon}
                       </div>
                       <h3 className="text-base font-bold text-[#09090b] mb-2" style={{ fontFamily: "var(--font-space-grotesk)" }}>
@@ -243,6 +222,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ── Testimonials ─────────────────────────────────────────────────── */}
+      <TweetWall />
 
       {/* ── Footer CTA ───────────────────────────────────────────────────── */}
       <section className="snap-start min-h-screen flex items-center justify-center px-6">

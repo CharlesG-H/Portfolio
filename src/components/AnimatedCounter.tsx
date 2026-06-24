@@ -47,14 +47,14 @@ export default function AnimatedCounter({
   return (
     <div ref={ref}>
       <p
-        className="text-2xl font-semibold text-[#09090b] mb-1 tabular-nums"
+        className="text-2xl font-semibold text-foreground mb-1 tabular-nums"
         style={{ fontFamily: "var(--font-space-grotesk)" }}
       >
         {prefix}
         {count}
         {suffix}
       </p>
-      <p className="text-xs text-[#71717a] leading-snug">{label}</p>
+      <p className="text-xs text-muted leading-snug">{label}</p>
     </div>
   );
 }

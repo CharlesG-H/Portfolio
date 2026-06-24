@@ -36,7 +36,7 @@ export default function CaseStudyToC() {
     <aside className="hidden md:block">
       <div className="sticky top-24">
         <p
-          className="text-[10px] uppercase tracking-widest text-[#71717a] mb-4 font-medium"
+          className="text-[10px] uppercase tracking-widest text-muted mb-4 font-medium"
           style={{ fontFamily: "var(--font-space-grotesk)" }}
         >
           On this page
@@ -48,8 +48,8 @@ export default function CaseStudyToC() {
               href={`#${id}`}
               className={`text-sm py-1.5 pl-3 border-l-2 transition-all duration-200 ${
                 active === id
-                  ? "border-[#2563eb] text-[#2563eb] font-medium"
-                  : "border-[#e4e4e7] text-[#71717a] hover:text-[#09090b] hover:border-[#d4d4d8]"
+                  ? "border-accent text-accent font-medium"
+                  : "border-border text-muted hover:text-foreground hover:border-[#d4d4d8]"
               }`}
             >
               {label}

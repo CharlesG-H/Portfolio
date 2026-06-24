@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import Button from "@/components/ui/Button";
 
 const socialLinks = [
   {
@@ -47,7 +48,7 @@ export default function Navbar() {
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[#fafafa]/95 backdrop-blur-sm border-b border-[#e4e4e7] shadow-sm"
+          ? "bg-background/95 backdrop-blur-sm border-b border-border shadow-sm"
           : "bg-transparent"
       }`}
     >
@@ -55,17 +56,17 @@ export default function Navbar() {
         <Link
           href="/"
           aria-label="Home"
-          className="flex items-center justify-center w-8 h-8 rounded-md bg-[#09090b] text-white text-xs font-bold tracking-tight hover:bg-[#2563eb] transition-colors duration-300 shrink-0"
+          className="flex items-center justify-center w-8 h-8 rounded-md bg-foreground text-white text-xs font-bold tracking-tight hover:bg-accent transition-colors duration-300 shrink-0"
           style={{ fontFamily: "var(--font-space-grotesk)" }}
         >
           CC
         </Link>
 
-        <div className="flex items-center gap-6 text-sm text-[#71717a]">
-          <Link href="/work" className="hover:text-[#09090b] transition-colors duration-300">Work</Link>
-          <Link href="/about" className="hover:text-[#09090b] transition-colors duration-300">About</Link>
+        <div className="flex items-center gap-6 text-sm text-muted">
+          <Link href="/projects" className="hover:text-foreground transition-colors duration-300">Projects</Link>
+          <Link href="/about" className="hover:text-foreground transition-colors duration-300">About</Link>
 
-          <div className="flex items-center gap-3 border-l border-[#e4e4e7] pl-6">
+          <div className="flex items-center gap-3 border-l border-border pl-6">
             {socialLinks.map((s) => (
               <a
                 key={s.label}
@@ -73,19 +74,16 @@ export default function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={s.label}
-                className="text-[#71717a] hover:text-[#09090b] transition-colors duration-300"
+                className="text-muted hover:text-foreground transition-colors duration-300"
               >
                 {s.icon}
               </a>
             ))}
           </div>
 
-          <a
-            href="mailto:charles.csz@hotmail.com"
-            className="text-xs px-3 py-1.5 bg-[#2563eb] text-white rounded hover:bg-[#1d4ed8] transition-colors duration-300"
-          >
+          <Button href="mailto:charles.csz@hotmail.com" size="sm">
             Contact
-          </a>
+          </Button>
         </div>
       </nav>
     </header>

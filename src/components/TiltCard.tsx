@@ -32,7 +32,7 @@ export default function TiltCard({
   };
 
   return (
-    <div style={{ perspective: "1000px" }}>
+    <div className="h-full" style={{ perspective: "1000px" }}>
       <motion.div
         ref={ref}
         onMouseMove={handleMouseMove}

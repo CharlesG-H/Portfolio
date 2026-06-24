@@ -1,11 +1,12 @@
 import Link from "next/link";
 import { featuredProjects } from "@/lib/projects";
-import StatusBadge from "@/components/StatusBadge";
+import Button from "@/components/ui/Button";
+import AuroraBackdrop from "@/components/AuroraBackdrop";
 import FadeIn from "@/components/FadeIn";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import HeroSection from "@/components/HeroSection";
 import TiltCard from "@/components/TiltCard";
-import TweetWall from "@/components/TweetWall";
+// import TweetWall from "@/components/TweetWall"; // re-enable once real testimonials are added
 import TargetIcon from "@/components/icons/target-icon";
 import ChartLineIcon from "@/components/icons/chart-line-icon";
 import BrainCircuitIcon from "@/components/icons/brain-circuit-icon";
@@ -14,22 +15,22 @@ import ChartBarIcon from "@/components/icons/chart-bar-icon";
 const skills = [
   {
     title: "Product Strategy",
-    items: ["Roadmapping", "Discovery", "PRDs", "RICE", "JTBD", "Stakeholder Management"],
+    blurb: "Turn ambiguous problems into prioritised roadmaps and PRDs engineers can ship from.",
     icon: <TargetIcon size={40} strokeWidth={1.8} />,
   },
   {
     title: "Growth & Experimentation",
-    items: ["A/B Testing", "CRO", "Funnel Analysis", "Device Segmentation", "Usability Testing"],
+    blurb: "Find the funnel leak, run the experiment, move the metric.",
     icon: <ChartLineIcon size={40} strokeWidth={1.8} />,
   },
   {
     title: "AI & Automation",
-    items: ["AI Agent Building", "Prompt Engineering", "MCP", "Claude Code", "FastAPI"],
+    blurb: "Build AI agents and internal tools that take manual work off the team.",
     icon: <BrainCircuitIcon size={40} strokeWidth={1.8} />,
   },
   {
     title: "Analytics",
-    items: ["Mixpanel", "Holistics", "Microsoft Clarity", "Google Analytics", "GTM"],
+    blurb: "Instrument the product so data, not opinion, drives the next bet.",
     icon: <ChartBarIcon size={40} strokeWidth={1.8} />,
   },
 ]
@@ -70,45 +71,45 @@ export default function Home() {
       <HeroSection />
 
       {/* ── Numbers + Insight ────────────────────────────────────────────── */}
-      <section className="snap-start min-h-screen flex flex-col items-center justify-center px-6">
+      <section className="py-28 px-6 flex flex-col items-center">
         <FadeIn className="w-full max-w-4xl">
-          <div className="grid grid-cols-4 gap-6 text-center pb-14 border-b border-[#e4e4e7]">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center pb-14 border-b border-border">
             {[
-              { value: "300%", label: "car insurance premium growth" },
-              { value: "+63%", label: "leads from funnel redesign" },
-              { value: "74%", label: "fewer policy changes post-purchase" },
-              { value: "6 yrs", label: "in digital insurance" },
+              { value: "300%", label: "revenue growth on a core product line" },
+              { value: "+63%", label: "more qualified leads from a funnel redesign" },
+              { value: "74%", label: "fewer post-purchase support requests" },
+              { value: "6 yrs", label: "building digital products" },
             ].map((stat) => (
               <AnimatedCounter key={stat.label} value={stat.value} label={stat.label} />
             ))}
           </div>
         </FadeIn>
         <FadeIn delay={100} className="w-full max-w-4xl pt-14">
-          <blockquote className="pl-6 border-l-2 border-[#2563eb]">
+          <blockquote className="pl-6 border-l-2 border-accent">
             <p
-              className="text-xl text-[#09090b] leading-relaxed"
+              className="text-xl text-foreground leading-relaxed"
               style={{ fontFamily: "var(--font-space-grotesk)" }}
             >
               "Most internal tools solve the wrong problem — they automate the easy parts and leave the painful parts manual."
             </p>
-            <footer className="mt-4 text-xs text-[#71717a] uppercase tracking-widest">
-              On the AI Quotation Tool · MoneySmart, 2026
+            <footer className="mt-4 text-xs text-muted uppercase tracking-widest">
+              On internal tooling · 2026
             </footer>
           </blockquote>
         </FadeIn>
       </section>
 
       {/* ── Skills ───────────────────────────────────────────────────────── */}
-      <section className="snap-start min-h-screen flex items-center w-full bg-[#eff6ff]">
+      <section className="py-28 w-full bg-tint">
         <FadeIn className="w-full">
-          <div className="max-w-5xl mx-auto px-6 grid grid-cols-3 gap-10 items-center">
+          <div className="max-w-5xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10 items-center">
             {/* Left: heading */}
-            <div className="col-span-1">
-              <p className="text-xs uppercase tracking-widest text-[#2563eb] mb-4 font-medium" style={{ fontFamily: "var(--font-space-grotesk)" }}>
+            <div className="md:col-span-1">
+              <p className="text-xs uppercase tracking-widest text-accent mb-4 font-medium" style={{ fontFamily: "var(--font-space-grotesk)" }}>
                 My Skills
               </p>
               <h2
-                className="text-4xl font-bold text-[#09090b] leading-tight"
+                className="text-4xl font-bold text-foreground leading-tight"
                 style={{ fontFamily: "var(--font-space-grotesk)" }}
               >
                 Building products that ship results.
@@ -116,20 +117,20 @@ export default function Home() {
             </div>
 
             {/* Right: 2×2 skill cards */}
-            <div className="col-span-2 grid grid-cols-2 gap-4">
+            <div className="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4 auto-rows-fr">
               {skills.map((skill, i) => (
-                <FadeIn key={skill.title} delay={i * 70}>
-                  <TiltCard>
-                    <div className="relative bg-white rounded-xl p-6 border border-dashed border-[#e4e4e7] hover:shadow-md hover:border-[#2563eb]/30 transition-all duration-300 h-full">
+                <FadeIn key={skill.title} delay={i * 70} className="h-full">
+                  <TiltCard className="h-full">
+                    <div className="relative bg-card rounded-xl p-6 border border-dashed border-border hover:shadow-md hover:border-accent/30 transition-all duration-300 h-full">
                       <CornerPlus />
                       <div className="w-10 h-10 mb-4">
                         {skill.icon}
                       </div>
-                      <h3 className="text-base font-bold text-[#09090b] mb-2" style={{ fontFamily: "var(--font-space-grotesk)" }}>
+                      <h3 className="text-base font-bold text-foreground mb-2" style={{ fontFamily: "var(--font-space-grotesk)" }}>
                         {skill.title}
                       </h3>
-                      <p className="text-sm text-[#71717a] leading-relaxed">
-                        {skill.items.join(", ")}
+                      <p className="text-sm text-muted leading-relaxed">
+                        {skill.blurb}
                       </p>
                     </div>
                   </TiltCard>
@@ -141,7 +142,7 @@ export default function Home() {
       </section>
 
       {/* ── Selected work ─────────────────────────────────────────────────── */}
-      <section className="snap-start min-h-screen py-20">
+      <section className="py-28">
         <div className="max-w-5xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-[260px_1fr] gap-12 items-start">
 
@@ -149,20 +150,15 @@ export default function Home() {
             <FadeIn>
               <div className="md:sticky md:top-[80px]">
                 <h2
-                  className="text-4xl font-bold text-[#09090b] leading-tight mb-4"
+                  className="text-4xl font-bold text-foreground leading-tight mb-4"
                   style={{ fontFamily: "var(--font-space-grotesk)" }}
                 >
-                  Selected<br />Work
+                  Projects
                 </h2>
-                <p className="text-sm text-[#71717a] leading-relaxed mb-6">
+                <p className="text-sm text-muted leading-relaxed mb-6">
                   Three projects. Each owned end-to-end — from problem framing to shipping and measuring what changed.
                 </p>
-                <Link
-                  href="/work"
-                  className="inline-block text-sm px-4 py-2.5 bg-[#2563eb] text-white rounded hover:bg-[#1d4ed8] transition-colors duration-300 font-medium"
-                >
-                  View all work →
-                </Link>
+                <Button href="/projects">View all projects →</Button>
               </div>
             </FadeIn>
 
@@ -172,8 +168,8 @@ export default function Home() {
                 <FadeIn key={project.slug} delay={i * 100}>
                   <TiltCard>
                     <Link
-                      href={`/work/${project.slug}`}
-                      className="group block rounded-xl overflow-hidden border border-[#e4e4e7] hover:border-[#2563eb] hover:shadow-[0_0_0_1px_#2563eb,0_8px_32px_rgba(37,99,235,0.1)] transition-all duration-300"
+                      href={`/projects/${project.slug}`}
+                      className="group block rounded-xl overflow-hidden border border-border hover:border-accent hover:shadow-[0_0_0_1px_#2563eb,0_8px_32px_rgba(37,99,235,0.1)] transition-all duration-300"
                     >
                       {/* Gradient header */}
                       <div className={`bg-gradient-to-br ${project.gradient} h-44 flex flex-col justify-end p-6 relative`}>
@@ -185,30 +181,27 @@ export default function Home() {
                             {project.metric}
                           </span>
                         )}
-                        <div className="absolute top-4 right-4">
-                          <StatusBadge status={project.status} />
-                        </div>
                       </div>
 
                       {/* Card body */}
-                      <div className="p-6 bg-white">
-                        <p className="text-[11px] text-[#71717a] mb-2">
-                          {project.company} · {project.period}
+                      <div className="p-6 bg-card">
+                        <p className="text-[11px] text-muted mb-2">
+                          {project.period}
                         </p>
                         <h3
-                          className="text-xl font-semibold text-[#09090b] group-hover:text-[#2563eb] transition-colors duration-300 mb-3"
+                          className="text-xl font-semibold text-foreground group-hover:text-accent transition-colors duration-300 mb-3"
                           style={{ fontFamily: "var(--font-space-grotesk)" }}
                         >
                           {project.title}
                         </h3>
-                        <p className="text-sm text-[#71717a] leading-relaxed mb-4">
+                        <p className="text-sm text-muted leading-relaxed mb-4">
                           {project.tagline ?? project.summary}
                         </p>
                         <div className="flex items-center justify-between">
-                          <p className="text-xs font-semibold text-[#2563eb]">
+                          <p className="text-xs font-semibold text-accent">
                             {project.outcome}
                           </p>
-                          <span className="text-xs text-[#71717a] group-hover:text-[#2563eb] transition-colors duration-300 shrink-0 ml-4">
+                          <span className="text-xs text-muted group-hover:text-accent transition-colors duration-300 shrink-0 ml-4">
                             Read case study →
                           </span>
                         </div>
@@ -224,26 +217,22 @@ export default function Home() {
       </section>
 
       {/* ── Testimonials ─────────────────────────────────────────────────── */}
-      <TweetWall />
+      {/* <TweetWall /> — hidden until real testimonials replace the placeholders in TweetWall.tsx */}
 
       {/* ── Footer CTA ───────────────────────────────────────────────────── */}
-      <section className="snap-start min-h-screen flex items-center justify-center px-6">
-        <FadeIn className="text-center">
+      <section className="relative overflow-hidden py-28 px-6 flex justify-center bg-foreground">
+        <AuroraBackdrop />
+        <FadeIn className="relative z-10 text-center">
           <h2
-            className="text-3xl font-semibold text-[#09090b] mb-4 tracking-tight"
+            className="text-3xl font-semibold text-white mb-4 tracking-tight"
             style={{ fontFamily: "var(--font-space-grotesk)" }}
           >
             Currently open to PM roles.
           </h2>
-          <p className="text-sm text-[#71717a] mb-8">
+          <p className="text-sm text-white/60 mb-8">
             Based in Singapore. Background in insurance, fintech, and AI product. Looking for the next hard problem to own.
           </p>
-          <a
-            href="mailto:charles.csz@hotmail.com"
-            className="inline-block text-sm px-6 py-3 bg-[#09090b] text-white rounded hover:bg-[#2563eb] transition-colors duration-300 font-medium"
-          >
-            Get in touch →
-          </a>
+          <Button href="mailto:charles.csz@hotmail.com" size="lg">Get in touch →</Button>
         </FadeIn>
       </section>
     </div>

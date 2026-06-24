@@ -2,23 +2,34 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
   scroll-padding-top: 64px;
 }
 
 @theme inline {
-  --color-background: #fafafa;
-  --color-foreground: #09090b;
-  --color-muted: #71717a;
-  --color-border: #e4e4e7;
+  /* ── Surfaces ── */
+  --color-background: #fafafa;   /* base page surface */
+  --color-card: #ffffff;         /* elevated surface (cards) */
+  --color-tint: #eff6ff;         /* tinted band surface */
+  --color-tint-border: #bfdbfe;  /* border on tinted surfaces */
+
+  /* ── Text + lines ── */
+  --color-foreground: #09090b;   /* primary text / inverted surface */
+  --color-muted: #71717a;        /* secondary text */
+  --color-subtle: #f4f4f5;       /* subtle fills */
+  --color-border: #e4e4e7;       /* hairlines */
+
+  /* ── Accent (primary action) ── */
   --color-accent: #2563eb;
+  --color-accent-hover: #1d4ed8;
+  --color-accent-soft: #3b82f6;  /* accent text on tinted/dark */
+
   --font-sans: var(--font-archivo);
   --font-display: var(--font-space-grotesk);
 }
 
 body {
   background-color: #fafafa;
-  background-image: radial-gradient(circle, #d4d4d8 1px, transparent 1px);
+  background-image: radial-gradient(circle, #e4e4e7 1px, transparent 1px);
   background-size: 28px 28px;
   color: #09090b;
   font-family: var(--font-archivo), system-ui, sans-serif;

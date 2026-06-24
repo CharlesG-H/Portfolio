@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Archivo, Space_Grotesk } from "next/font/google";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import "./globals.css";
 
 const archivo = Archivo({
@@ -28,9 +29,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${archivo.variable} ${spaceGrotesk.variable}`}>
-      <body className="min-h-screen flex flex-col bg-[#fafafa]">
+      <body className="min-h-screen flex flex-col bg-background">
         <Navbar />
         <main className="flex-1">{children}</main>
+        <Footer />
       </body>
     </html>
   );

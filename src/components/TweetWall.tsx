@@ -60,7 +60,7 @@ const testimonials = [
 
 function XIcon() {
   return (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" className="text-[#09090b]">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" className="text-foreground">
       <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.912-5.622Zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
     </svg>
   );
@@ -68,27 +68,27 @@ function XIcon() {
 
 export default function TweetWall() {
   return (
-    <section className="snap-start min-h-screen flex items-center py-20">
+    <section className="py-20">
       <div className="max-w-5xl mx-auto px-6 w-full">
         <FadeIn>
           <p
-            className="text-xs uppercase tracking-widest text-[#2563eb] mb-4 font-medium"
+            className="text-xs uppercase tracking-widest text-accent mb-4 font-medium"
             style={{ fontFamily: "var(--font-space-grotesk)" }}
           >
             Testimonials
           </p>
           <h2
-            className="text-4xl font-bold text-[#09090b] leading-tight mb-12"
+            className="text-4xl font-bold text-foreground leading-tight mb-12"
             style={{ fontFamily: "var(--font-space-grotesk)" }}
           >
             What people say.
           </h2>
         </FadeIn>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-fr">
           {testimonials.map((t, i) => (
-            <FadeIn key={t.handle} delay={i * 70}>
-              <div className="bg-white rounded-xl border border-[#e4e4e7] p-5 flex flex-col gap-4 hover:shadow-sm transition-shadow duration-300">
+            <FadeIn key={t.handle} delay={i * 70} className="h-full">
+              <div className="h-full bg-card rounded-xl border border-border p-5 flex flex-col gap-4 hover:shadow-sm transition-shadow duration-300">
                 <div className="flex items-start justify-between">
                   <div className="flex items-center gap-3">
                     <div
@@ -98,22 +98,22 @@ export default function TweetWall() {
                       {t.name[0]}
                     </div>
                     <div>
-                      <p className="text-sm font-semibold text-[#09090b] leading-tight">
+                      <p className="text-sm font-semibold text-foreground leading-tight">
                         {t.name}
                       </p>
-                      <p className="text-[11px] text-[#71717a]">@{t.handle}</p>
+                      <p className="text-[11px] text-muted">@{t.handle}</p>
                     </div>
                   </div>
                   <XIcon />
                 </div>
 
-                <p className="text-sm text-[#09090b] leading-relaxed">
+                <p className="text-sm text-foreground leading-relaxed">
                   {t.content}
                 </p>
 
-                <div className="flex items-center justify-between pt-1 border-t border-[#f4f4f5]">
-                  <p className="text-[11px] text-[#71717a]">{t.role}</p>
-                  <p className="text-[11px] text-[#71717a]">{t.date}</p>
+                <div className="flex items-center justify-between pt-1 border-t border-subtle">
+                  <p className="text-[11px] text-muted">{t.role}</p>
+                  <p className="text-[11px] text-muted">{t.date}</p>
                 </div>
               </div>
             </FadeIn>

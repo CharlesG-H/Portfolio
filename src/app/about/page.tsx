@@ -1,3 +1,6 @@
+import Container from "@/components/ui/Container";
+import PageHeader from "@/components/ui/PageHeader";
+
 export const metadata = {
   title: "About — Charles Chua",
 };
@@ -62,16 +65,11 @@ const strengths = [
 
 export default function AboutPage() {
   return (
-    <div className="max-w-5xl mx-auto px-6 py-14">
-      <h1
-        className="text-xs uppercase tracking-widest text-[#71717a] mb-12"
-        style={{ fontFamily: "var(--font-space-grotesk)" }}
-      >
-        About
-      </h1>
+    <Container className="py-14">
+      <PageHeader title="About" />
 
       <section className="mb-14">
-        <p className="text-sm leading-relaxed text-[#09090b] mb-4">
+        <p className="text-sm leading-relaxed text-foreground mb-4">
           I&apos;m Charles Chua, a Product Manager based in Singapore with 6 years
           building and scaling digital insurance products. I currently work at{" "}
           <span className="font-medium">MoneySmart</span>, driving O2O growth
@@ -80,14 +78,14 @@ export default function AboutPage() {
           early product through API integrations with insurer partners, purchase
           journey redesigns, and the 2024 mobile app revamp.
         </p>
-        <p className="text-sm leading-relaxed text-[#71717a] mb-4">
+        <p className="text-sm leading-relaxed text-muted mb-4">
           I combine product discovery, user research, and conversion optimisation
           with hands-on prototyping. When I find a recurring bottleneck — a
           form with too many steps, an advisor workflow that takes 45 minutes,
           a promo campaign that needs an engineering ticket — I try to solve it
           at the system level, not just once.
         </p>
-        <p className="text-sm leading-relaxed text-[#71717a]">
+        <p className="text-sm leading-relaxed text-muted">
           I read code, write specs that don&apos;t need chasing, and run experiments
           before making decisions. Currently building AI agents and internal tools
           using Claude Code, MCP, React, and FastAPI alongside my core PM work.
@@ -96,21 +94,21 @@ export default function AboutPage() {
 
       <section className="mb-14">
         <h2
-          className="text-xs uppercase tracking-widest text-[#71717a] mb-6"
+          className="text-xs uppercase tracking-widest text-muted mb-6"
           style={{ fontFamily: "var(--font-space-grotesk)" }}
         >
           Skills &amp; Tools
         </h2>
-        <div className="flex flex-col divide-y divide-[#e4e4e7]">
+        <div className="flex flex-col divide-y divide-border">
           {skills.map((s) => (
             <div key={s.category} className="py-4 flex flex-col gap-1 sm:flex-row sm:gap-6">
               <span
-                className="text-xs font-medium text-[#09090b] shrink-0 w-48"
+                className="text-xs font-medium text-foreground shrink-0 w-48"
                 style={{ fontFamily: "var(--font-space-grotesk)" }}
               >
                 {s.category}
               </span>
-              <span className="text-xs text-[#71717a] leading-relaxed">{s.items}</span>
+              <span className="text-xs text-muted leading-relaxed">{s.items}</span>
             </div>
           ))}
         </div>
@@ -118,21 +116,21 @@ export default function AboutPage() {
 
       <section className="mb-14">
         <h2
-          className="text-xs uppercase tracking-widest text-[#71717a] mb-6"
+          className="text-xs uppercase tracking-widest text-muted mb-6"
           style={{ fontFamily: "var(--font-space-grotesk)" }}
         >
           Strengths (evidence-backed)
         </h2>
-        <div className="flex flex-col divide-y divide-[#e4e4e7]">
+        <div className="flex flex-col divide-y divide-border">
           {strengths.map((s) => (
             <div key={s.label} className="py-4 flex flex-col gap-1">
               <span
-                className="text-sm font-medium text-[#09090b]"
+                className="text-sm font-medium text-foreground"
                 style={{ fontFamily: "var(--font-space-grotesk)" }}
               >
                 {s.label}
               </span>
-              <span className="text-sm text-[#71717a] leading-relaxed">{s.evidence}</span>
+              <span className="text-sm text-muted leading-relaxed">{s.evidence}</span>
             </div>
           ))}
         </div>
@@ -140,7 +138,7 @@ export default function AboutPage() {
 
       <section className="mb-14">
         <h2
-          className="text-xs uppercase tracking-widest text-[#71717a] mb-6"
+          className="text-xs uppercase tracking-widest text-muted mb-6"
           style={{ fontFamily: "var(--font-space-grotesk)" }}
         >
           Experience
@@ -148,43 +146,43 @@ export default function AboutPage() {
         <div className="flex flex-col gap-6">
           <div>
             <div className="flex items-baseline justify-between mb-1">
-              <span className="text-sm font-medium text-[#09090b]" style={{ fontFamily: "var(--font-space-grotesk)" }}>Product Manager — MoneySmart</span>
-              <span className="text-xs text-[#71717a]">2020 – Present</span>
+              <span className="text-sm font-medium text-foreground" style={{ fontFamily: "var(--font-space-grotesk)" }}>Product Manager — MoneySmart</span>
+              <span className="text-xs text-muted">2020 – Present</span>
             </div>
-            <p className="text-xs text-[#71717a]">O2O Growth &amp; AI (Jan 2026–) · Bubblegum Insurance (2020–2025)</p>
+            <p className="text-xs text-muted">O2O Growth &amp; AI (Jan 2026–) · Bubblegum Insurance (2020–2025)</p>
           </div>
           <div>
             <div className="flex items-baseline justify-between mb-1">
-              <span className="text-sm font-medium text-[#09090b]" style={{ fontFamily: "var(--font-space-grotesk)" }}>Associate Consultant — Zolution</span>
-              <span className="text-xs text-[#71717a]">2019 – 2020</span>
+              <span className="text-sm font-medium text-foreground" style={{ fontFamily: "var(--font-space-grotesk)" }}>Associate Consultant — Zolution</span>
+              <span className="text-xs text-muted">2019 – 2020</span>
             </div>
-            <p className="text-xs text-[#71717a]">Translated business needs into functional specifications, managed end-to-end implementation</p>
+            <p className="text-xs text-muted">Translated business needs into functional specifications, managed end-to-end implementation</p>
           </div>
           <div>
             <div className="flex items-baseline justify-between mb-1">
-              <span className="text-sm font-medium text-[#09090b]" style={{ fontFamily: "var(--font-space-grotesk)" }}>Murdoch University</span>
-              <span className="text-xs text-[#71717a]">2018 – 2020</span>
+              <span className="text-sm font-medium text-foreground" style={{ fontFamily: "var(--font-space-grotesk)" }}>Murdoch University</span>
+              <span className="text-xs text-muted">2018 – 2020</span>
             </div>
-            <p className="text-xs text-[#71717a]">B. Business — International Management &amp; Business Management</p>
+            <p className="text-xs text-muted">B. Business — International Management &amp; Business Management</p>
           </div>
         </div>
       </section>
 
       <section>
         <h2
-          className="text-xs uppercase tracking-widest text-[#71717a] mb-6"
+          className="text-xs uppercase tracking-widest text-muted mb-6"
           style={{ fontFamily: "var(--font-space-grotesk)" }}
         >
           Contact
         </h2>
         <a
           href="mailto:charles.csz@hotmail.com"
-          className="text-sm font-medium text-[#09090b] hover:text-[#2563eb] transition-colors duration-300 cursor-pointer"
+          className="text-sm font-medium text-foreground hover:text-accent transition-colors duration-300 cursor-pointer"
         >
           charles.csz@hotmail.com →
         </a>
-        <p className="text-xs text-[#71717a] mt-2">Singapore</p>
+        <p className="text-xs text-muted mt-2">Singapore</p>
       </section>
-    </div>
+    </Container>
   );
 }

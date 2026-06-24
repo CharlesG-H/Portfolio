@@ -1,10 +1,10 @@
 import type { Status } from "@/lib/projects";
 
 const styles: Record<Status, string> = {
-  Done: "bg-[#09090b] text-[#fafafa]",
-  Live: "bg-[#2563eb] text-white",
-  "In Progress": "bg-[#f4f4f5] text-[#71717a]",
-  Experiment: "border border-[#e4e4e7] text-[#71717a]",
+  Done: "bg-foreground text-background",
+  Live: "bg-accent text-white",
+  "In Progress": "bg-subtle text-muted",
+  Experiment: "border border-border text-muted",
 };
 
 export default function StatusBadge({ status }: { status: Status }) {

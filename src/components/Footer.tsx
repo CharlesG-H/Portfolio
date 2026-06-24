@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 const navLinks = [
-  { label: "Work", href: "/work" },
+  { label: "Projects", href: "/projects" },
   { label: "About", href: "/about" },
 ];
 
@@ -46,19 +46,19 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-[#e4e4e7] mt-20">
+    <footer className="border-t border-border mt-20">
       <div className="max-w-5xl mx-auto px-6 py-12">
         {/* Top row */}
         <div className="flex flex-col md:flex-row md:items-start justify-between gap-8">
           {/* Brand */}
           <div>
             <p
-              className="text-sm font-semibold text-[#09090b] mb-1"
+              className="text-sm font-semibold text-foreground mb-1"
               style={{ fontFamily: "var(--font-space-grotesk)" }}
             >
               Charles Chua
             </p>
-            <p className="text-xs text-[#71717a]">
+            <p className="text-xs text-muted">
               Product Manager · Singapore
             </p>
           </div>
@@ -71,7 +71,7 @@ export default function Footer() {
                 <Link
                   key={link.label}
                   href={link.href}
-                  className="text-xs text-[#71717a] hover:text-[#09090b] transition-colors duration-200"
+                  className="text-xs text-muted hover:text-foreground transition-colors duration-200"
                 >
                   {link.label}
                 </Link>
@@ -87,7 +87,7 @@ export default function Footer() {
                   target={s.href.startsWith("mailto") ? undefined : "_blank"}
                   rel={s.href.startsWith("mailto") ? undefined : "noopener noreferrer"}
                   aria-label={s.label}
-                  className="text-[#71717a] hover:text-[#2563eb] transition-colors duration-200"
+                  className="text-muted hover:text-accent transition-colors duration-200"
                 >
                   {s.icon}
                 </a>
@@ -97,11 +97,11 @@ export default function Footer() {
         </div>
 
         {/* Bottom row */}
-        <div className="mt-10 pt-6 border-t border-[#e4e4e7] flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] text-[#71717a]">
+        <div className="mt-10 pt-6 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] text-muted">
           <span>© {new Date().getFullYear()} Charles Chua. All rights reserved.</span>
           <a
             href="mailto:charles.csz@hotmail.com"
-            className="hover:text-[#2563eb] transition-colors duration-200"
+            className="hover:text-accent transition-colors duration-200"
           >
             charles.csz@hotmail.com
           </a>

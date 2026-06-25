@@ -1,80 +1,77 @@
 import Link from "next/link";
-import { projects } from "@/lib/projects";
+import { featuredProjects, otherProjects } from "@/lib/projects";
 import FadeIn from "@/components/FadeIn";
 import Container from "@/components/ui/Container";
 import PageHeader from "@/components/ui/PageHeader";
+import ProjectCard from "@/components/ProjectCard";
 
 export const metadata = {
   title: "Projects — Charles Chua",
 };
-
-const o2o = projects.filter((p) => p.company === "MoneySmart O2O");
-const bubblegum = projects.filter((p) => p.company === "Bubblegum Insurance");
-
-type Group = { label: string; sub: string; items: typeof projects }
-
-const groups: Group[] = [
-  {
-    label: "Growth & AI",
-    sub: "Jan 2026 – Present",
-    items: o2o,
-  },
-  {
-    label: "Insurance Platform",
-    sub: "2020 – 2025 · Car, Travel, PA",
-    items: bubblegum,
-  },
-]
 
 export default function WorkPage() {
   return (
     <Container className="py-14">
       <PageHeader
         title="Projects"
-        intro="A few problems I owned end-to-end — diagnosed, shipped, and measured."
+        intro="A few problems I owned end-to-end — diagnosed, shipped, and measured. Growth work and zero-to-one builds."
       />
 
-      {groups.map((group) => (
-        <section key={group.label} className="mb-14">
+      {/* ── Featured case studies ── */}
+      <section className="mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 auto-rows-fr">
+          {featuredProjects.map((project, i) => (
+            <ProjectCard key={project.slug} project={project} delay={i * 80} />
+          ))}
+        </div>
+      </section>
+
+      {/* ── Also shipped ── */}
+      {otherProjects.length > 0 && (
+        <section>
           <FadeIn>
             <div className="mb-6">
               <h2
                 className="font-semibold text-sm text-foreground"
                 style={{ fontFamily: "var(--font-space-grotesk)" }}
               >
-                {group.label}
+                Also shipped
               </h2>
-              <p className="text-xs text-muted mt-0.5">{group.sub}</p>
+              <p className="text-xs text-muted mt-0.5">
+                More work across growth, platform, and internal tooling.
+              </p>
             </div>
           </FadeIn>
-          <div className="flex flex-col gap-3">
-            {group.items.map((project, i) => (
-              <FadeIn key={project.slug} delay={i * 60}>
+          <div className="flex flex-col">
+            {otherProjects.map((project, i) => (
+              <FadeIn key={project.slug} delay={i * 40}>
                 <Link
                   href={`/projects/${project.slug}`}
-                  className="group block p-5 rounded-xl bg-card border border-border hover:border-accent hover:shadow-[0_0_0_1px_#2563eb,0_4px_24px_rgba(37,99,235,0.08)] hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
+                  className="group flex items-baseline justify-between gap-4 py-3 border-b border-border hover:border-accent transition-colors duration-300"
                 >
-                  <h3
-                    className="text-sm font-medium text-foreground group-hover:text-accent transition-colors duration-300 mb-1.5"
-                    style={{ fontFamily: "var(--font-space-grotesk)" }}
-                  >
-                    {project.title}
-                  </h3>
-                  <p className="text-sm text-muted leading-relaxed">
-                    {project.tagline ?? project.summary}
-                  </p>
+                  <div className="min-w-0">
+                    <h3
+                      className="text-sm font-medium text-foreground group-hover:text-accent transition-colors duration-300 inline"
+                      style={{ fontFamily: "var(--font-space-grotesk)" }}
+                    >
+                      {project.title}
+                    </h3>
+                    <span className="text-sm text-muted">
+                      {" — "}
+                      {project.tagline ?? project.summary}
+                    </span>
+                  </div>
                   {project.metric && (
-                    <p className="text-xs font-semibold text-accent mt-2">
+                    <span className="text-xs font-semibold text-accent shrink-0 hidden sm:block">
                       {project.metric}
-                    </p>
+                    </span>
                   )}
                 </Link>
               </FadeIn>
             ))}
           </div>
         </section>
-      ))}
+      )}
     </Container>
   );
 }
-

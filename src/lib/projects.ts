@@ -32,48 +32,48 @@ export const projects: Project[] = [
     role: "Owner",
     status: "Live",
     period: "Jan 2026",
-    tagline: "Recovered high-intent leads lost at the form stage with dual-CTA and device-segmented testing.",
+    tagline: "Three experiments turned an 89% drop-off into a device-split rollout — +47% desktop conversion, +63% more leads.",
     summary:
-      "Redesigned the O2O insurance lead funnel to recover high-intent traffic lost at the form stage – dual-CTA, WhatsApp entry points, and device-segmented A/B rollouts.",
+      "Rebuilt the Term Life lead funnel, where 89% of visitors left without engaging. A sequence of A/B tests showed the answer wasn't one form for everyone — it was device-specific: a single inline form for desktop, the original CTA flow for mobile.",
     outcome: "+47% desktop Sessions→Lead conversion · +63% absolute leads",
     metric: "Desktop +47% · Leads +63%",
-    capabilities: ["Conversion optimisation", "A/B testing", "Funnel analysis", "Device segmentation"],
+    capabilities: ["Experiment design", "A/B testing", "Funnel analysis", "Device segmentation", "Statistical judgment"],
     featured: true,
     body: {
       problem:
-        "High-intent users were dropping off at the form stage before submitting a lead. The single entry path and multi-step form created too much friction, particularly on desktop where intent was highest.",
+        "The Term Life lead funnel leaked at the top — 89% of visitors left without ever engaging the form. The legacy flow asked for 9 inputs across 2 steps before showing a single plan or price: an inverted value exchange. I triangulated three signals to confirm it was worth fixing. Logged-in users, who already trust the platform, converted at 16.3% against a ~5% baseline for everyone else. Phone-number fields are a known conversion-killer for Singaporean users who avoid unknown callers. And competitors had all moved to “value before effort” layouts. The target was Sessions→Lead conversion, with a guardrail that qualified-lead rate couldn't drop below 35%.",
       whatIDid:
-        "Led the redesign of the O2O insurance lead funnel – introducing dual-CTA layouts and WhatsApp entry points to give users choice, then running device-segmented A/B rollouts so desktop and mobile experiences were optimised independently rather than treated as one audience.",
+        "I didn't ship a redesign — I ran a sequence of experiments and let each result pick the next move.\n\nFirst, a single-page form (just Name, Phone, Email) against the legacy 3-step flow. It lifted Sessions→Lead conversion +16.7%, consistent across three independent measurement periods. The mechanism was a funnel-width vs completion trade-off: the single form widened the top of the funnel (22.1% vs 13.5% of sessions started it) far more than it lost on per-starter completion. Volume was low (26 vs 21 leads), so I shipped on the consistent directional signal across three periods rather than waiting on a single p-value.\n\nThe obvious next step was to push further and embed the form straight into the hero. That test failed — it drove 47% more interactions but 43% fewer of them became leads. Engagement up, intent down: a clean reminder that more activity isn't more outcome.\n\nThe decisive test put an optimised single form against a dual-CTA layout, and I read the result out by device. The same form won decisively on desktop (+47% conversion, +63% more leads) and lost badly on mobile, where the original flow drove 2.3x the leads — the inline form was simply too heavy on a small screen. At the blended level the test looked inconclusive; the desktop win was being masked by mobile drag.",
       result:
-        "Desktop Sessions→Lead conversion lifted by up to 47% and absolute leads grew 63%. Mobile experience was tailored separately to protect its existing conversion baseline.",
+        "Instead of a blanket ship-or-kill, I rolled out by device: the single inline form for desktop, the original dual-CTA flow kept for mobile. Desktop Sessions→Lead conversion rose 47% (8.33% vs 5.65%) with 63% more leads, while mobile lead volume was protected. The durable win was the operating lesson — in this funnel, device is a first-class segment, not a detail. Optimising for the blended average would have shipped a change that quietly hurt half the traffic.",
       quote:
-        "Device segmentation was the unlock. Desktop and mobile users behave completely differently at the form stage – optimising for one was actively hurting the other.",
+        "The blended numbers said ‘inconclusive.’ Splitting by device said ‘ship desktop, revert mobile.’ Optimising for the average would have actively hurt half our traffic.",
     },
   },
   {
     slug: "ai-quotation-tool",
         gradient: "from-[#4c1d95] to-[#7c3aed]",
-    title: "AI Quotation Tool for Advisors",
+    title: "AI Quotation Pipeline for Advisors",
     company: "MoneySmart O2O",
     role: "Owner",
     status: "Live",
-    period: "Jan 2026",
-    tagline: "Automated the advisor quotation workflow — 45 → 15 min per lead.",
+    period: "2025 – 2026",
+    tagline: "An AI pipeline that turns a recorded sales call into submitted insurer quotes — same revenue on 19% fewer leads.",
     summary:
-      "Built and rolled out an AI-powered tool that automated a manual, time-intensive quotation workflow for the advisory team – cutting turnaround from ~45 to ~15 minutes per lead.",
-    outcome: "Turnaround cut from ~45 to ~15 min per lead",
-    metric: "45 min → 15 min per lead",
-    capabilities: ["AI & automation", "Internal tooling", "Workflow design", "Advisor enablement"],
+      "Project Miner — an internal automation platform that turns a recorded sales call into submitted insurer quotes. It bridges Granola call transcripts → a prefilled form → headless automation against the Singlife, Income and Cigna portals, returning PDF quotes by email. Built to remove a 45-minute manual quotation step, then extended to absorb a 60%-of-leads bottleneck before the one specialist who handled it went on leave.",
+    outcome: "Revenue held flat on 19% fewer leads · +14% value per qualified lead · qualified-lead rate 34.9% → 38.0%",
+    metric: "+14% value/qualified lead",
+    capabilities: ["AI & automation", "Systems design", "Internal tooling", "Operational continuity", "Technical depth"],
     featured: true,
     body: {
       problem:
-        "Advisors were spending ~45 minutes per lead on a manual quotation workflow – pulling data, checking eligibility, formatting quotes – leaving little time for higher-value client engagement.",
+        "Generating a quote was a ~45-minute manual job per lead: an advisor pulled details from the call, logged into each insurer's portal, re-keyed everything, cleared the OTP, and assembled the PDFs by hand. Two things made it urgent. It scaled badly — advisors were already mandated to make the first qualification call, so manual entry on top was pure administrative drag. And sharper still: health insurance was 60% of all organic leads and was handled almost single-handedly by a support specialist who was going on maternity leave. Without automation, that volume would land on advisors overnight, risking lead abandonment exactly when it mattered most.",
       whatIDid:
-        "Built and rolled out an AI-powered tool to the advisory team that automated the quotation workflow end-to-end, including data retrieval, eligibility logic, and quote formatting.",
+        "I specced and drove Miner — a pipeline that turns a recorded call into submitted quotes with a human only in the review seat.\n\nThe flow: Granola captures the call and emits a structured JSON payload; an n8n workflow posts it to a Lead Service and drops a prefilled form link into Slack; the advisor reviews and fills any gaps; on submit, the request fans out through an SQS queue to workers that drive Playwright automation against the Singlife, Income and Cigna portals — OTP handling included — then return PDF quotes and screenshots by email and write the premium back to the CRM.\n\nThe part most internal tools skip is the part I went after: the painful end of the workflow. Not just prefilling a form, but logging into each insurer, clearing OTP, reconciling the field differences between local and international plans, and giving advisors a review UI to correct extraction gaps before anything was submitted. The design target was to take that ~45-minute job under 10.",
       result:
-        "Turnaround dropped from ~45 to ~15 minutes per lead. Advisors reinvested the recovered time in higher-value client engagement.",
+        "I measured the term & mortgage rollout quarter-over-quarter (Q3 pre vs Q4 post), and was careful to separate signal from noise. Total lead volume fell 19% over the period — but that was seasonality and a Google core update, not Miner, so I didn't claim it. What Miner can be credited with is what happened to the leads that remained: qualified-lead rate rose from 34.9% to 38.0%, value per qualified lead rose 14% (S$199 → S$226), and total revenue held flat (~S$66k) despite the 19% drop in volume. Same output from materially less input. On the strength of that, I scoped the health extension to bring the 60%-of-leads category onto the same pipeline ahead of the specialist's leave.",
       quote:
-        "Most internal tools solve the wrong problem – they automate the easy parts and leave the painful parts manual. This one went after the full 45 minutes.",
+        "Most internal tools automate the easy parts and leave the painful parts manual. This one went after the painful parts — the portal logins, the OTP, the local-versus-international field differences. That's where the 45 minutes actually lived.",
     },
   },
   {
@@ -189,6 +189,7 @@ export const projects: Project[] = [
     outcome: "+20% monthly user engagement",
     metric: "+20% monthly engagement",
     capabilities: ["Strategic vision", "Mobile product design", "Cross-functional leadership"],
+    featured: true,
     body: {
       problem:
         "The Bubblegum app was structured around the purchase journey. Post-purchase customers had poor visibility into their policies, limited self-service, and no clear support path – leading to low engagement after the initial purchase.",
@@ -237,6 +238,7 @@ export const projects: Project[] = [
     outcome: "Unified identity layer across all Bubblegum products",
     metric: "20,000+ accounts migrated",
     capabilities: ["Ambiguity navigation", "Edge case handling", "Risk identification"],
+    featured: true,
     body: {
       problem:
         "Bubblegum's auth relied on phone OTP, creating friction and no persistent identity layer. Existing customers had fragmented accounts across products.",
@@ -342,5 +344,21 @@ export const projects: Project[] = [
   },
 ]
 
-export const featuredProjects = projects.filter((p) => p.featured)
+// Featured case studies, ordered to alternate growth ↔ zero-to-one so the
+// mix reads in the first scan rather than clustering by type.
+const featuredOrder = [
+  "o2o-lead-funnel",      // growth
+  "ai-quotation-tool",    // 0→1
+  "car-insurance-growth", // growth
+  "user-identity",        // 0→1
+  "endorsement-experiment", // growth
+  "mobile-app-revamp",    // 0→1
+]
+
+export const featuredProjects = featuredOrder.map(
+  (slug) => projects.find((p) => p.slug === slug)!
+)
+
+// Everything else — shown as a compact "also shipped" strip, not full cards.
+export const otherProjects = projects.filter((p) => !p.featured)
 

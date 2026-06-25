@@ -9,6 +9,20 @@ export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
 }
 
+// Renders body copy as paragraphs, splitting on blank lines so multi-beat
+// narratives read as distinct paragraphs rather than one dense block.
+function Prose({ text }: { text: string }) {
+  return (
+    <div className="flex flex-col gap-3">
+      {text.split("\n\n").map((para, i) => (
+        <p key={i} className="text-sm leading-relaxed text-foreground">
+          {para}
+        </p>
+      ))}
+    </div>
+  );
+}
+
 export async function generateMetadata(props: PageProps<"/projects/[slug]">) {
   const { slug } = await props.params;
   const project = projects.find((p) => p.slug === slug);
@@ -79,9 +93,7 @@ export default async function ProjectPage(props: PageProps<"/projects/[slug]">) 
                 >
                   Problem
                 </h2>
-                <p className="text-sm leading-relaxed text-foreground">
-                  {project.body.problem}
-                </p>
+                <Prose text={project.body.problem} />
               </div>
             </FadeIn>
 
@@ -93,9 +105,7 @@ export default async function ProjectPage(props: PageProps<"/projects/[slug]">) 
                 >
                   What I did
                 </h2>
-                <p className="text-sm leading-relaxed text-foreground">
-                  {project.body.whatIDid}
-                </p>
+                <Prose text={project.body.whatIDid} />
               </div>
             </FadeIn>
 
@@ -107,9 +117,7 @@ export default async function ProjectPage(props: PageProps<"/projects/[slug]">) 
                 >
                   Result
                 </h2>
-                <p className="text-sm leading-relaxed text-foreground">
-                  {project.body.result}
-                </p>
+                <Prose text={project.body.result} />
               </div>
             </FadeIn>
 

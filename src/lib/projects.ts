@@ -77,52 +77,27 @@ export const projects: Project[] = [
     },
   },
   {
-    slug: "single-page-form",
-        gradient: "from-[#0c4a6e] to-[#0284c7]",
-    title: "Single-Page Lead Form",
-    company: "MoneySmart O2O",
-    role: "Owner",
-    status: "Live",
-    period: "Apr 2026",
-    tagline: "Collapsed a 3-step lead flow into a single page — and won on funnel width, not completion: +16.7% Sessions→Lead conversion, steady across three measurement periods.",
-    summary:
-      "The legacy lead flow asked for nine inputs across two steps before showing a single price. I replaced it with a single-page form and ran it as an A/B test, lifting Sessions→Lead conversion +16.7% — consistent across three measurement periods.",
-    outcome: "+16.7% Sessions→Lead conversion",
-    metric: "+16.7% (3 measurement periods)",
-    capabilities: ["Conversion optimisation", "A/B testing", "Form UX", "Funnel analysis"],
-    body: {
-      problem:
-        "The legacy lead flow asked for nine inputs across two steps before showing a single plan or price — an inverted value exchange that bled users at every step transition. Funnel decomposition showed the steepest drop-offs happening between steps, not at the final submit: people weren't rejecting the offer, they were abandoning the staircase to reach it.",
-      whatIDid:
-        "I cut the form to its essentials — Name, Phone, Email on one page — and ran it as an A/B test against the legacy 3-step flow rather than swapping it outright.\n\nThe win came from a trade-off worth naming. The single page widened the top of the funnel far more than it lost on per-starter completion: 22.1% of sessions started it versus 13.5% on the legacy flow. Absolute volume was low — 26 leads vs 21 — so I made the call on the consistent directional signal across three independent measurement periods rather than holding out for a single significant p-value.",
-      result:
-        "+16.7% Sessions→Lead conversion, consistent across three measurement periods — enough to confirm it wasn't a spike. The single-page form became the desktop default and the foundation for the broader funnel-redesign work that followed.",
-      quote:
-        "A narrower form per step isn't the goal — a wider funnel overall is. One page lost a little on completion and won much more on how many people started at all.",
-    },
-  },
-  {
     slug: "whatsapp-lead-modal",
         gradient: "from-[#134e4a] to-[#0d9488]",
     title: "WhatsApp Lead Capture",
-    tagline: "Not every user wants to fill a form. I added a WhatsApp path as a second front door for mobile-first, lower-intent users who'd rather start a conversation.",
+    tagline: "Tested a WhatsApp 'Talk to an Advisor' entry point against the 3-step form. It converted ~82% of everyone who clicked — but ~4.5x fewer people clicked it. A winning submission flow behind a losing front door.",
     company: "MoneySmart O2O",
     role: "Owner",
-    status: "Live",
-    period: "2026",
+    status: "Experiment",
+    period: "Feb–Mar 2026",
     summary:
-      "A meaningful segment of users — mobile-first, with lower form-fill intent — weren't converting through the standard lead form. I added a WhatsApp path as a second entry point so users who'd rather message than fill fields had a lower-friction way in that still landed in the same lead pipeline.",
-    outcome: "WhatsApp added as a lower-friction second entry point to the lead funnel",
-    capabilities: ["Growth experimentation", "Channel strategy", "Top-of-funnel optimisation"],
+      "An A/B test of a WhatsApp Business entry point on the O2O landing pages — a 'Talk to an Advisor' button opening a 3-field modal — against the standard 3-step lead form. It surfaced a clean split: the WhatsApp modal converted nearly everyone who opened it (~82–100%) where the form lost ~70%, but the WhatsApp button drew ~4.5x fewer clicks. A better submission flow behind a weaker entry point.",
+    outcome: "Validated WhatsApp as a high-efficiency capture flow but a weak entry point — and diagnosed the fix",
+    capabilities: ["Growth experimentation", "A/B testing", "Funnel analysis", "Channel strategy", "Top-of-funnel optimisation"],
     body: {
       problem:
-        "A meaningful segment of users — mobile-first, or with lower form-fill intent — simply weren't converting through the standard lead form. For them the form wasn't a small friction; it was the whole barrier. Forcing a single entry point assumed every user wanted to convert the same way, when a sizeable group would rather just start a conversation.",
+        "The O2O top funnel leaked most of its demand before a lead ever existed. Users landed on the insurance landing pages, hit a multi-step form, and only became a lead in FreshSales — where a financial advisor could engage — after submitting it. December 2025 funnel data showed the bleed sat upstream of lead creation: on Term Life ~89% of sessions dropped before the plan step and ~59% of those who reached 'your details' never submitted; Health and Life looked the same (~84–93% early drop-off). The single biggest loss happened before a lead was created, which pointed at form friction as the blocker.",
       whatIDid:
-        "I added a second front door rather than trying to fix the only one: a WhatsApp path that let users start a chat instead of filling fields, routed so a WhatsApp lead lands in the same pipeline as a form lead.\n\nThe bet was that channel choice, not form design, was the unlock for this segment — meet people where the friction is lowest rather than keep optimising a form they were never going to complete.",
+        "I ran an experiment to test whether the channel — not the form fields — was the real friction. The test added a WhatsApp Business 'Talk to an Advisor' button on the landing pages as an alternative entry point: clicking it opened a lightweight modal (name, mobile number, a short description of the query, marketing consent), and on submit created a lead in the CRM via the Freshchat–Freshsales integration, fired an automated WhatsApp reply, and handed off to an advisor to follow up by call or chat. Even partial detail was enough — the phone number alone let an FA reach out. I ran it as a 50/50 A/B test against the existing 3-step 'Get Quote' form, across both the main page and the sub-pages.",
       result:
-        "It gave a lower-friction path to a segment that was otherwise leaking straight out of the top of the funnel — widening the front of the funnel by channel rather than squeezing more out of a single form.",
+        "The result was an honest split, not a win. Once a user opened the WhatsApp modal they almost always finished it — ~82% to ~100% action-to-lead, against ~30% completion on the 3-step form, which on some sub-pages was a dead end (zero leads from 60 clicks). But far fewer users would click the WhatsApp button in the first place: ~1.4–4% of sessions versus 20–25% for 'Get Quote' — roughly 4.5–5x fewer. On the main page the form still won on total leads per session (~5.9% vs ~3.5%); on the sub-pages the WhatsApp modal was the only variant generating any leads at all. The diagnosis was specific: a winning submission flow behind a losing entry point, driven by an intent mismatch — at the evaluative top of funnel, 'Talk to an Advisor' is too high-commitment, so the high-intent few who click convert beautifully while everyone else is priced out. The clear next move was to reframe the entry point to the form's value proposition ('Get a Quote on WhatsApp' rather than 'WhatsApp Us'), which modelling suggested could lift session-to-lead from ~1.1% toward ~4.8%. I also flagged the operational cost: WhatsApp leads are manual and high-touch where the form is automated.",
       quote:
-        "Not every user wants to convert the same way. The form wasn't broken for everyone — it was broken for a segment that just wanted to message us, so we gave them that.",
+        "The WhatsApp modal didn't lose because it was a bad form — it lost because of the door in front of it. Nearly everyone who opened it converted; the real problem was getting them to click 'Talk to an Advisor' instead of 'Get a Quote.'",
     },
   },
 
@@ -294,11 +269,11 @@ export const projects: Project[] = [
     capabilities: ["User journey design", "Conversion optimisation", "Data segmentation", "Retention"],
     body: {
       problem:
-        "Renewals and new business shared the same front door. A customer coming back to renew — whether from a reminder email, a marketing link, or directly — could fall into the new-business quote flow and be asked to re-enter everything we already knew: vehicle, driver, history. For a retention moment meant to feel effortless, it was the opposite, and the friction showed up as drop-off on exactly the customers we most wanted to keep.",
+        "Renewals and new business shared the same front door. A customer coming back to renew — from a reminder email, a marketing link, or directly — could fall into the new-business quote flow and be asked to re-enter everything we already held: vehicle, driver, claims history. For a retention moment meant to feel effortless, it was the opposite, and the friction showed up as drop-off on exactly the customers we most wanted to keep — against a 65%+ monthly renewal-rate target.",
       whatIDid:
-        "I defined detection logic to identify a renewal-eligible customer at the point of entry, and an interstitial that intercepted them before they fell into the wrong flow, routing them to the renewal journey instead.\n\nThat journey was built to remove the re-entry entirely. The renewal premium is auto-calculated ahead of time from the insurer's twice-monthly claims/NCD file and the prior year's policy, so the customer lands on a pre-filled one-page summary rather than a blank questionnaire — edit the few things that change, pay, done. Personalised renewal links from email and WhatsApp could drop authenticated customers straight onto that summary or the payment screen.",
+        "I defined detection logic to identify a renewal-eligible customer at the point of entry, and an interstitial that intercepted them before they fell into the new-business flow — routing them into the renewal journey instead.\n\nThat journey removed the re-entry entirely. The renewal premium is auto-calculated ahead of time from the insurer's (III's) claims and NCD file — delivered twice a month in two batches — and the prior year's policy, so the customer lands on a pre-filled one-page summary instead of a blank questionnaire: edit the few things that actually change (mileage, COM, finance company, named drivers), pay, done.\n\nThe routing carried real eligibility intelligence rather than just a redirect. A vehicle turning 16 drops Compre/Compre+ and surfaces the next-best plan; at 18 it narrows to TPO; past 21 the policy can't be renewed at all, so the renewal prompt is suppressed instead of leading the customer into a dead end. Personalised, no-login links from email and WhatsApp could drop an authenticated returning customer straight onto the summary or the payment screen — email carrying a primary 'Pay now' and a secondary 'Review and Pay', WhatsApp a single in-chat Pay CTA.",
       result:
-        "Shipped. Renewal customers were correctly segmented at the entry point and directed into the renewal flow rather than the new-business funnel — turning a repeated data-entry slog into a review-and-pay step, in service of the 65%+ monthly renewal-rate target the renewal program was built around.",
+        "Shipped. Renewal customers were correctly segmented at the entry point and directed into the renewal flow rather than the new-business funnel — turning a repeated data-entry slog into a review-and-pay step, in service of the 65%+ monthly renewal-rate target the renewal program was built around. Reminders ran on a T-45 / T-30 / T-15 cadence across email, WhatsApp and push, and stopped on expiry day.",
       quote:
         "A renewal isn't a new purchase — we already hold the data. The fix was making sure the system recognised a returning customer before it asked them to start over.",
     },
@@ -318,11 +293,11 @@ export const projects: Project[] = [
     capabilities: ["Growth", "CDP architecture", "Marketing enablement", "Systems thinking"],
     body: {
       problem:
-        "Promo campaigns ran on Talon.One with Segment as the CDP, but the function that should have been self-serve — launch a promo, see who's eligible, personalise on it — depended on engineering. Creating and targeting a new campaign meant pulling in a developer, so marketing velocity was bottlenecked by engineering capacity and queued behind the product roadmap.",
+        "Promo campaigns ran on Talon.One with Segment as the CDP (after we moved off Mailchimp), but the part that should have been self-serve wasn't. Every new campaign — define who's eligible, set the discount rule, personalise it — needed an engineer to wire up the targeting. That capped marketing's promo velocity at engineering capacity and parked it behind the product roadmap, which is backwards for a discount engine: promos are time-sensitive and run constantly, so a per-campaign engineering dependency is a permanent tax.",
       whatIDid:
-        "I focused on making campaigns self-serve for marketing. On Talon.One — with Segment as the CDP after we moved off Mailchimp — I defined the customer and session attributes campaigns would segment and personalise on (product interest, number of policies held, travel destination, lead source and more) and the rules marketers could build campaigns around.\n\nThe goal was a one-time setup any future campaign could reuse, so launching a promo and seeing who's eligible no longer queued behind an engineering ticket.",
+        "The fix was a one-time targeting foundation marketing could reuse for any campaign, rather than a per-campaign engineering build. Working in Talon.One with Segment feeding it, I defined the customer and session attributes campaigns segment and personalise on — Has Car, number of car and travel policies held, travel destination, initial and last-touch UTM source, platform (desktop / mobile / app), session product, and cart premium — and the rule structure marketers could compose on top of them.\n\nThat unlocked a library of campaign types with no further engineering: cross-sell (car customers who buy travel, and the reverse), nth-purchase personalisation, destination-based travel offers, make/model targeting, and time-boxed codes with usage caps (e.g. first 1,000 redemptions). The attributes were the leverage — set once, every future promo just references them.",
       result:
-        "Marketing could define and target promo campaigns on a shared Talon.One + Segment foundation rather than depending on engineering to wire up each one — turning a recurring per-campaign dependency into reusable infrastructure.",
+        "Marketing could define, target and personalise promo campaigns on the shared Talon.One + Segment foundation rather than filing an engineering ticket for each one — turning a recurring per-campaign dependency into reusable infrastructure, and the groundwork for the broader wallet/loyalty program (store, stack and redeem codes) this was the first step toward.",
       quote:
         "The unlock wasn't any single campaign — it was setting up the attributes and rules once so marketing could launch and target promos themselves, instead of filing an engineering ticket every time.",
     },

@@ -27,7 +27,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="snap-start relative overflow-hidden bg-[#09090b] min-h-screen flex items-center">
+    <section className="relative overflow-hidden bg-[#09090b] min-h-screen flex items-center">
       <motion.div
         style={{ y: blob1Y }}
         className="blob-1 absolute top-1/4 left-1/4 w-[480px] h-[480px] rounded-full bg-[#2563eb] opacity-20 blur-3xl pointer-events-none"

@@ -57,15 +57,7 @@ const skills = [
 
 function PlusIcon({ className }: { className?: string }) {
   return (
-    <svg
-      viewBox="0 0 24 24"
-      width={14}
-      height={14}
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      className={className}
-    >
+    <svg viewBox="0 0 24 24" width={14} height={14} fill="none" stroke="currentColor" strokeWidth="1.5" className={className}>
       <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" />
     </svg>
   );
@@ -83,60 +75,55 @@ function CornerPlus() {
   );
 }
 
-
 export default function Home() {
   return (
     <div>
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <HeroSection />
 
-      {/* ── Numbers + Insight ────────────────────────────────────────────── */}
-      <section className="snap-start min-h-screen flex flex-col items-center justify-center px-6">
-        <FadeIn className="w-full max-w-4xl">
-          <div className="grid grid-cols-4 gap-6 text-center pb-14 border-b border-[#e4e4e7]">
-            {[
-              { value: "300%", label: "car insurance premium growth" },
-              { value: "+63%", label: "leads from funnel redesign" },
-              { value: "74%", label: "fewer policy changes post-purchase" },
-              { value: "6 yrs", label: "in digital insurance" },
-            ].map((stat) => (
-              <AnimatedCounter key={stat.label} value={stat.value} label={stat.label} />
-            ))}
-          </div>
-        </FadeIn>
-        <FadeIn delay={100} className="w-full max-w-4xl pt-14">
-          <blockquote className="pl-6 border-l-2 border-[#2563eb]">
-            <p
-              className="text-xl text-[#09090b] leading-relaxed"
-              style={{ fontFamily: "var(--font-space-grotesk)" }}
-            >
-              "Most internal tools solve the wrong problem — they automate the easy parts and leave the painful parts manual."
+      {/* ── Numbers ──────────────────────────────────────────────────────── */}
+      <section className="py-28 px-6 border-b border-[#e4e4e7]">
+        <div className="max-w-5xl mx-auto">
+          <FadeIn>
+            <p className="text-xs uppercase tracking-widest text-[#2563eb] mb-12 font-medium">
+              Impact
             </p>
-            <footer className="mt-4 text-xs text-[#71717a] uppercase tracking-widest">
-              On the AI Quotation Tool · MoneySmart, 2026
-            </footer>
-          </blockquote>
-        </FadeIn>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center pb-16 border-b border-[#e4e4e7]">
+              {[
+                { value: "300%", label: "car insurance premium growth" },
+                { value: "+63%", label: "leads from funnel redesign" },
+                { value: "74%", label: "fewer policy changes post-purchase" },
+                { value: "6 yrs", label: "in digital insurance" },
+              ].map((stat) => (
+                <AnimatedCounter key={stat.label} value={stat.value} label={stat.label} />
+              ))}
+            </div>
+          </FadeIn>
+          <FadeIn delay={100}>
+            <blockquote className="pt-16 max-w-2xl">
+              <p className="text-xl text-[#09090b] leading-relaxed pl-6 border-l-2 border-[#2563eb]">
+                "Most internal tools solve the wrong problem — they automate the easy parts and leave the painful parts manual."
+              </p>
+              <footer className="mt-5 pl-6 text-xs text-[#71717a] uppercase tracking-widest">
+                On the AI Quotation Tool · MoneySmart, 2026
+              </footer>
+            </blockquote>
+          </FadeIn>
+        </div>
       </section>
 
       {/* ── Skills ───────────────────────────────────────────────────────── */}
-      <section className="snap-start min-h-screen flex items-center w-full bg-[#eff6ff]">
+      <section className="py-28 px-6 border-b border-[#e4e4e7]">
         <FadeIn className="w-full">
-          <div className="max-w-5xl mx-auto px-6 grid grid-cols-3 gap-10 items-center">
-            {/* Left: heading */}
+          <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 items-center">
             <div className="col-span-1">
-              <p className="text-xs uppercase tracking-widest text-[#2563eb] mb-4 font-medium" style={{ fontFamily: "var(--font-space-grotesk)" }}>
+              <p className="text-xs uppercase tracking-widest text-[#2563eb] mb-4 font-medium">
                 My Skills
               </p>
-              <h2
-                className="text-4xl font-bold text-[#09090b] leading-tight"
-                style={{ fontFamily: "var(--font-space-grotesk)" }}
-              >
+              <h2 className="text-4xl font-bold text-[#09090b] leading-tight">
                 Building products that ship results.
               </h2>
             </div>
-
-            {/* Right: 2×2 skill cards */}
             <div className="col-span-2 grid grid-cols-2 gap-4">
               {skills.map((skill, i) => (
                 <FadeIn key={skill.title} delay={i * 70}>
@@ -146,7 +133,7 @@ export default function Home() {
                       <div className="w-10 h-10 mb-4 text-[#09090b]">
                         {skill.icon}
                       </div>
-                      <h3 className="text-base font-bold text-[#09090b] mb-2" style={{ fontFamily: "var(--font-space-grotesk)" }}>
+                      <h3 className="text-base font-bold text-[#09090b] mb-2">
                         {skill.title}
                       </h3>
                       <p className="text-sm text-[#71717a] leading-relaxed">
@@ -161,22 +148,21 @@ export default function Home() {
         </FadeIn>
       </section>
 
-      {/* ── Selected work ─────────────────────────────────────────────────── */}
-      <section className="snap-start min-h-screen py-20">
-        <div className="max-w-5xl mx-auto px-6">
+      {/* ── Selected work ────────────────────────────────────────────────── */}
+      <section className="py-28 px-6 border-b border-[#e4e4e7]">
+        <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-[260px_1fr] gap-12 items-start">
 
-            {/* Sticky sidebar */}
             <FadeIn>
               <div className="md:sticky md:top-[80px]">
-                <h2
-                  className="text-4xl font-bold text-[#09090b] leading-tight mb-4"
-                  style={{ fontFamily: "var(--font-space-grotesk)" }}
-                >
-                  Selected<br />Work
+                <p className="text-xs uppercase tracking-widest text-[#2563eb] mb-4 font-medium">
+                  Selected Work
+                </p>
+                <h2 className="text-4xl font-bold text-[#09090b] leading-tight mb-4">
+                  Projects that<br />moved the needle.
                 </h2>
                 <p className="text-sm text-[#71717a] leading-relaxed mb-6">
-                  Three projects. Each owned end-to-end — from problem framing to shipping and measuring what changed.
+                  Each owned end-to-end — from problem framing to shipping and measuring what changed.
                 </p>
                 <Link
                   href="/work"
@@ -187,7 +173,6 @@ export default function Home() {
               </div>
             </FadeIn>
 
-            {/* Scrolling project cards */}
             <div className="flex flex-col gap-6">
               {featuredProjects.map((project, i) => (
                 <FadeIn key={project.slug} delay={i * 100}>
@@ -196,13 +181,9 @@ export default function Home() {
                       href={`/work/${project.slug}`}
                       className="group block rounded-xl overflow-hidden border border-[#e4e4e7] hover:border-[#2563eb] hover:shadow-[0_0_0_1px_#2563eb,0_8px_32px_rgba(37,99,235,0.1)] transition-all duration-300"
                     >
-                      {/* Gradient header */}
                       <div className={`bg-gradient-to-br ${project.gradient} h-44 flex flex-col justify-end p-6 relative`}>
                         {project.metric && (
-                          <span
-                            className="text-2xl font-bold text-white/90 tracking-tight leading-snug"
-                            style={{ fontFamily: "var(--font-space-grotesk)" }}
-                          >
+                          <span className="text-2xl font-bold text-white/90 tracking-tight leading-snug">
                             {project.metric}
                           </span>
                         )}
@@ -210,16 +191,11 @@ export default function Home() {
                           <StatusBadge status={project.status} />
                         </div>
                       </div>
-
-                      {/* Card body */}
                       <div className="p-6 bg-white">
                         <p className="text-[11px] text-[#71717a] mb-2">
                           {project.company} · {project.period}
                         </p>
-                        <h3
-                          className="text-xl font-semibold text-[#09090b] group-hover:text-[#2563eb] transition-colors duration-300 mb-3"
-                          style={{ fontFamily: "var(--font-space-grotesk)" }}
-                        >
+                        <h3 className="text-xl font-semibold text-[#09090b] group-hover:text-[#2563eb] transition-colors duration-300 mb-3">
                           {project.title}
                         </h3>
                         <p className="text-sm text-[#71717a] leading-relaxed mb-4">
@@ -245,23 +221,27 @@ export default function Home() {
       </section>
 
       {/* ── Footer CTA ───────────────────────────────────────────────────── */}
-      <section className="snap-start min-h-screen flex items-center justify-center px-6">
-        <FadeIn className="text-center">
-          <h2
-            className="text-3xl font-semibold text-[#09090b] mb-4 tracking-tight"
-            style={{ fontFamily: "var(--font-space-grotesk)" }}
-          >
-            Currently open to PM roles.
-          </h2>
-          <p className="text-sm text-[#71717a] mb-8">
-            Based in Singapore. Background in insurance, fintech, and AI product. Looking for the next hard problem to own.
+      <section className="py-28 px-6">
+        <FadeIn className="max-w-5xl mx-auto">
+          <p className="text-xs uppercase tracking-widest text-[#2563eb] mb-4 font-medium">
+            Let&apos;s talk
           </p>
-          <a
-            href="mailto:charles.csz@hotmail.com"
-            className="inline-block text-sm px-6 py-3 bg-[#09090b] text-white rounded hover:bg-[#2563eb] transition-colors duration-300 font-medium"
-          >
-            Get in touch →
-          </a>
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
+            <div>
+              <h2 className="text-4xl font-bold text-[#09090b] leading-tight mb-4">
+                Currently open<br />to PM roles.
+              </h2>
+              <p className="text-sm text-[#71717a] max-w-sm leading-relaxed">
+                Based in Singapore. Background in insurance, fintech, and AI product. Looking for the next hard problem to own.
+              </p>
+            </div>
+            <a
+              href="mailto:charles.csz@hotmail.com"
+              className="shrink-0 inline-block text-sm px-6 py-3 bg-[#09090b] text-white rounded hover:bg-[#2563eb] transition-colors duration-300 font-medium"
+            >
+              Get in touch →
+            </a>
+          </div>
         </FadeIn>
       </section>
     </div>

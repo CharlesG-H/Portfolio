@@ -32,7 +32,7 @@ const skills = [
   },
   {
     category: "Analytics",
-    items: "Holistics · Microsoft Clarity · Google Analytics · Mixpanel · Freshchat / Freshsuite",
+    items: "Holistics · Microsoft Clarity · Google Analytics · Mixpanel · Freshsales / Freshchat / Freshdesk",
   },
 ]
 
@@ -43,7 +43,7 @@ const strengths = [
   },
   {
     label: "AI & automation depth",
-    evidence: "Built AI quotation tool cutting advisor turnaround from 45 → 15 min; uses Claude Code, MCP, and FastAPI in daily work",
+    evidence: "Built an AI quotation pipeline taking a ~45-minute manual quotation step toward a sub-10-minute automated one; uses Claude Code, MCP, and FastAPI in daily work",
   },
   {
     label: "Revenue impact",
@@ -51,15 +51,15 @@ const strengths = [
   },
   {
     label: "Technical depth",
-    evidence: "Defined Talon One→Segment webhook spec independently; built internal tools with React and FastAPI; integrates GTM/dataLayer for tracking",
+    evidence: "Defined the Talon.One + Segment attribute & targeting setup; built internal tools with React and FastAPI; integrates GTM/dataLayer for tracking",
   },
   {
     label: "Customer lifecycle thinking",
-    evidence: "Renewal flow, Profile V1, App Refresh (+20% engagement) — all address the post-purchase experience",
+    evidence: "Renewal Customer Routing, Email Login Migration, Mobile App Revamp (+20% engagement) — all address the post-purchase experience",
   },
   {
     label: "Ops & internal tooling",
-    evidence: "Tech Support Tool (–90% eng troubleshooting) · Admin Panel (ops team fully self-sufficient) — both shipped without consuming engineering capacity",
+    evidence: "Support Diagnostics Tool (routine policy edits handed back to ops) · Ops Admin Panel (ops team fully self-sufficient) — both shipped without consuming engineering capacity",
   },
 ]
 
@@ -73,8 +73,9 @@ export default function AboutPage() {
           I&apos;m Charles Chua, a Product Manager based in Singapore with 6 years
           building and scaling digital insurance products. I currently work at{" "}
           <span className="font-medium">MoneySmart</span>, driving O2O growth
-          through experimentation and AI-powered tooling. Before that, I spent
-          five years building Bubblegum Insurance — Car, Travel, and PA — from
+          through experimentation and AI-powered tooling. Earlier in my time
+          there, I spent five years building Bubblegum Insurance — Car, Travel,
+          and PA — from
           early product through API integrations with insurer partners, purchase
           journey redesigns, and the 2024 mobile app revamp.
         </p>

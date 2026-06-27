@@ -47,7 +47,7 @@ export default function WorkPage() {
               <FadeIn key={project.slug} delay={i * 40}>
                 <Link
                   href={`/projects/${project.slug}`}
-                  className="group flex items-baseline justify-between gap-4 py-3 border-b border-border hover:border-accent transition-colors duration-300"
+                  className="group grid grid-cols-1 sm:grid-cols-[1fr_14rem] items-center gap-x-8 py-3 border-b border-border hover:border-accent transition-colors duration-300"
                 >
                   <div className="min-w-0">
                     <h3
@@ -62,7 +62,7 @@ export default function WorkPage() {
                     </span>
                   </div>
                   {project.metric && (
-                    <span className="text-xs font-semibold text-accent shrink-0 hidden sm:block">
+                    <span className="hidden sm:inline-flex items-center justify-self-end rounded-sm border border-accent/20 bg-accent/5 px-2.5 py-1 text-xs font-semibold text-accent whitespace-nowrap">
                       {project.metric}
                     </span>
                   )}

@@ -105,23 +105,22 @@ export const projects: Project[] = [
     slug: "whatsapp-lead-modal",
         gradient: "from-[#134e4a] to-[#0d9488]",
     title: "WhatsApp Lead Capture",
-    tagline: "Gave low-intent and mobile users a WhatsApp path instead of a form — 83–100% completion against ~30% on the legacy flow.",
+    tagline: "Not every user wants to fill a form. I added a WhatsApp path as a second front door for mobile-first, lower-intent users who'd rather start a conversation.",
     company: "MoneySmart O2O",
     role: "Owner",
     status: "Live",
     period: "2026",
     summary:
-      "A meaningful segment of users — mobile-first, lower form-fill intent — weren't converting through the standard lead form. I added a WhatsApp lead-capture modal as a second entry point, wired into Freshchat and Freshsales, achieving 83–100% completion vs ~30% on the legacy flow.",
-    outcome: "83–100% modal completion vs ~30% legacy",
-    metric: "83–100% vs ~30%",
-    capabilities: ["Growth experimentation", "CRM integration", "Top-of-funnel optimisation"],
+      "A meaningful segment of users — mobile-first, with lower form-fill intent — weren't converting through the standard lead form. I added a WhatsApp path as a second entry point so users who'd rather message than fill fields had a lower-friction way in that still landed in the same lead pipeline.",
+    outcome: "WhatsApp added as a lower-friction second entry point to the lead funnel",
+    capabilities: ["Growth experimentation", "Channel strategy", "Top-of-funnel optimisation"],
     body: {
       problem:
         "A meaningful segment of users — mobile-first, or with lower form-fill intent — simply weren't converting through the standard lead form. For them the form wasn't a small friction; it was the whole barrier. Forcing a single entry point assumed every user wanted to convert the same way, when a sizeable group would rather just start a conversation.",
       whatIDid:
-        "I added a second front door rather than trying to fix the only one: a WhatsApp lead-capture modal that let users start a chat instead of filling fields. It's wired into Freshchat for the conversation and Freshsales for routing and follow-up, so a WhatsApp lead lands in the same pipeline as a form lead with no manual handoff.\n\nThe bet was that channel choice, not form design, was the unlock for this segment — meet people where the friction is lowest rather than keep optimising a form they were never going to complete.",
+        "I added a second front door rather than trying to fix the only one: a WhatsApp path that let users start a chat instead of filling fields, routed so a WhatsApp lead lands in the same pipeline as a form lead.\n\nThe bet was that channel choice, not form design, was the unlock for this segment — meet people where the friction is lowest rather than keep optimising a form they were never going to complete.",
       result:
-        "Modal completion ran 83–100% against ~30% for the legacy multi-step flow — a higher-intent, lower-friction path for a segment that was otherwise leaking straight out of the top of the funnel.",
+        "It gave a lower-friction path to a segment that was otherwise leaking straight out of the top of the funnel — widening the front of the funnel by channel rather than squeezing more out of a single form.",
       quote:
         "Not every user wants to convert the same way. The form wasn't broken for everyone — it was broken for a segment that just wanted to message us, so we gave them that.",
     },
@@ -210,15 +209,14 @@ export const projects: Project[] = [
     slug: "tech-support-tool",
         gradient: "from-[#075985] to-[#0284c7]",
     title: "Support Diagnostics Tool",
-    tagline: "Routine policy fixes kept pulling engineers off product work. I shipped an API-based support tool that let ops do them directly — cutting eng troubleshooting effort 90%.",
+    tagline: "Routine policy fixes kept pulling engineers off product work. I shipped an API-based support tool that let ops do them directly — handing routine policy edits back to the support team.",
     company: "Bubblegum Insurance",
     role: "Owner",
     status: "Done",
     period: "2023",
     summary:
-      "Support couldn't change a customer's policy without an engineering ticket — every address fix, date correction or named-driver change was a developer interruption. I defined and shipped an internal tech-support tool (a versioned API surface ops could drive themselves), with an audit trail and environment separation built in, cutting engineering troubleshooting effort 90%.",
-    outcome: "90% reduction in engineering troubleshooting effort",
-    metric: "Eng troubleshooting effort –90%",
+      "Support couldn't change a customer's policy without an engineering ticket — every address fix, date correction or named-driver change was a developer interruption. I defined and shipped an internal tech-support tool (a versioned API surface ops could drive themselves), with an audit trail and environment separation built in, so routine policy edits no longer needed a developer.",
+    outcome: "Routine policy operations handled by ops, not engineering",
     capabilities: ["Internal tooling", "API design", "Ops efficiency", "Cross-functional coordination"],
     body: {
       problem:
@@ -226,7 +224,7 @@ export const projects: Project[] = [
       whatIDid:
         "I specced an internal tech-support API the ops team could operate themselves (v3.1, run through a Postman collection across separate Production and UAT environments). It exposed exactly the operations support actually needed: PATCH a policy's email, phone, dates, vehicle, finance company or named drivers; update a user; add a dealer; and ingest the insurer's renewal CSV.\n\nTwo design choices made it safe to hand to non-engineers. Every call carries an admin-username header, so each change is attributable — a built-in audit trail rather than an anonymous data edit. And read endpoints (full policy data fields, request/response logs, valid finance-company and ID-type keys) let support diagnose and self-correct a case before writing anything. I coordinated delivery across engineering, ops, marketing and compliance so it shipped within the regulatory constraints on policy data.",
       result:
-        "Engineering troubleshooting effort dropped 90%, handing developer time back to product work and giving ops genuine self-sufficiency on routine policy operations. It also became the backbone for later tooling — the same renewal-file ingestion and policy operations were reused when the no-code Admin Panel was built on top.",
+        "Routine policy troubleshooting moved off engineering's plate and onto the support team's, handing developer time back to product work and giving ops genuine self-sufficiency on routine policy operations. It also became the backbone for later tooling — the same renewal-file ingestion and policy operations were reused when the no-code Admin Panel was built on top.",
       quote:
         "The win wasn't a clever feature — it was giving support the five or six operations they actually needed, with an audit trail, so engineering stopped being the help desk for routine policy edits.",
     },
@@ -258,30 +256,6 @@ export const projects: Project[] = [
     },
   },
   {
-    slug: "profile-v1",
-        gradient: "from-[#5b21b6] to-[#7c3aed]",
-    title: "Self-Serve Profile Management",
-    tagline: "Customers had to email support to change an address or a named driver. I co-owned the self-serve profile that turned an entire CS ticket category into something they could do themselves.",
-    company: "Bubblegum Insurance",
-    role: "Co-owner",
-    status: "Done",
-    period: "Q4 2024",
-    summary:
-      "Updating anything on your account meant contacting support — a steady stream of CS tickets for changes customers were perfectly capable of making. I co-owned the Profile PRD end-to-end, structuring it around what customers manage rather than how our data was stored, and shipped self-serve profile management for all B2C customers.",
-    outcome: "Self-serve profile live, CS ticket category eliminated",
-    capabilities: ["Customer-centric design", "CS deflection", "Edge-case handling", "Cross-functional coordination"],
-    body: {
-      problem:
-        "Updating anything on your account — address, email, mobile, a named driver — meant contacting support. That generated a steady stream of CS tickets for changes the customer was perfectly capable of making, and it made the simplest interactions feel slow and gated. It was a self-service gap dressed up as a support workload.",
-      whatIDid:
-        "I co-owned the Profile PRD end-to-end, structuring it around what customers actually manage rather than how our data happened to be stored. Five sections: My Details and Contact Details for the basics, Friends & Family (up to 10 contacts, pre-filled from existing policies so people didn't re-enter what we already knew), Vehicle Details (up to 5 vehicles, locked on active policies to protect in-force contracts), and Consent & Privacy.\n\nThe non-obvious parts were the guardrails: which fields stay editable while a policy is active, and how to let someone leave. I designed account deactivation with a 30-day data-retention window — a reversible exit rather than an instant irreversible delete, balancing the customer's right to go against the operational reality of live insurance contracts.",
-      result:
-        "Epic BBG-3004 shipped; self-serve profile management went live for all B2C customers. An entire category of routine CS tickets — 'please update my details' — moved from the support queue into the customer's own hands.",
-      quote:
-        "Most 'support volume' problems are really self-service gaps. People weren't contacting us because they needed help — they were contacting us because we hadn't let them do it themselves.",
-    },
-  },
-  {
     slug: "admin-panel",
         gradient: "from-[#1e293b] to-[#475569]",
     title: "Ops Admin Panel",
@@ -300,7 +274,7 @@ export const projects: Project[] = [
       whatIDid:
         "I contributed to the Admin Panel PRD, and the framing decision that shaped it was build-vs-buy. We chose a no-code platform (Jet Admin) and were honest about the trade: a lightweight tool built quickly and scrappily, not enterprise software — the right call when the goal is time-to-market and saving engineering hours, not a permanent platform.\n\nOn that base I helped spec the full policy lifecycle: a comprehensive policy list with role-restricted COI access, an endorsement workflow across seven statuses, cancellations and refunds across eight, renewal management, and a Customer 360 view assembled from the same database approach used for analytics. The governance was the careful part — role-based access plus a maker-checker approval flow for the actions that move money or change contracts (refunds, selective endorsements), so self-service didn't become unaudited risk.",
       result:
-        "Epic BBG-3575 shipped on 10 Dec 2024. The ops team became self-sufficient across Car, Travel and PA — managing policies, endorsements, cancellations and renewals without routing routine work through engineering — and it landed in a single quarter precisely because we chose not to build it in-house.",
+        "Epic BBG-3575 — Admin Panel Phase 1 — shipped. The ops team became self-sufficient across Car, Travel and PA — managing policies, endorsements, cancellations and renewals without routing routine work through engineering — and it landed in a single quarter precisely because we chose not to build it in-house.",
       quote:
         "We shipped a full ops panel — policy lifecycle, Customer 360, RBAC and maker-checker — in one quarter by choosing no-code on purpose. The discipline was matching the tool to the moment, not over-building.",
     },
@@ -333,24 +307,24 @@ export const projects: Project[] = [
     slug: "promo-segment",
         gradient: "from-[#0f172a] to-[#334155]",
     title: "Self-Serve Promo Campaign System",
-    tagline: "Every promo campaign needed an engineering ticket to wire up new traits. I designed a dynamic Talon.One → Segment pattern that made campaigns self-serve — zero tickets, any campaign.",
+    tagline: "Marketing couldn't run a promo without engineering wiring it up first. I worked on the Talon.One + Segment setup that let marketers create and target campaigns themselves.",
     company: "Bubblegum Insurance",
     role: "Owner",
     status: "Done",
     period: "2024",
     summary:
-      "Marketing's promo velocity was capped by engineering: each campaign needed a developer to define new Segment traits before it could personalise anything. I architected a dynamic Talon.One → Segment ingestion pattern that names traits from the campaign itself — turning a per-campaign engineering dependency into a one-time piece of infrastructure.",
-    outcome: "Zero engineering tickets for new promo campaigns",
-    capabilities: ["Technical depth", "Growth", "CDP architecture", "Systems thinking"],
+      "Marketing's promo velocity depended on engineering. I contributed to the promo-campaign setup on Talon.One with Segment as the CDP — defining the customer attributes and segmentation rules that let marketers create, target and personalise discount campaigns themselves rather than filing a ticket for each one.",
+    outcome: "Self-serve promo campaigns on Talon.One + Segment",
+    capabilities: ["Growth", "CDP architecture", "Marketing enablement", "Systems thinking"],
     body: {
       problem:
-        "Promo campaigns ran on Talon.One with Segment as the CDP, but the integration was hard-wired: every new campaign required an engineering ticket to define the Segment traits it needed before marketing could target or personalise on it. Marketing velocity was bottlenecked by engineering capacity, and a function that should be self-serve — launch a promo, see who's eligible — instead queued behind the product roadmap.",
+        "Promo campaigns ran on Talon.One with Segment as the CDP, but the function that should have been self-serve — launch a promo, see who's eligible, personalise on it — depended on engineering. Creating and targeting a new campaign meant pulling in a developer, so marketing velocity was bottlenecked by engineering capacity and queued behind the product roadmap.",
       whatIDid:
-        "Instead of solving one campaign, I designed the pattern that dissolves the whole class of tickets. The key was Talon.One's campaignIdentifier attribute: I used it to dynamically name Segment traits as promo_code_${campaignIdentifier}, so a trait's name derives from the campaign rather than being hand-defined for each one.\n\nThis was a spec I owned at the implementation level, not a hand-off. I documented the webhook payload coming out of Talon.One and wrote the Segment Destination Function (in JavaScript) that parses it and writes the dynamically-named trait into Segment Engage. Once that infrastructure existed, every future campaign reused it for free.",
+        "I focused on making campaigns self-serve for marketing. On Talon.One — with Segment as the CDP after we moved off Mailchimp — I defined the customer and session attributes campaigns would segment and personalise on (product interest, number of policies held, travel destination, lead source and more) and the rules marketers could build campaigns around.\n\nThe goal was a one-time setup any future campaign could reuse, so launching a promo and seeing who's eligible no longer queued behind an engineering ticket.",
       result:
-        "Marketing can now launch any promo campaign and have personalised, campaign-specific traits available in Segment Engage without filing an engineering ticket. A recurring per-campaign cost became a one-time build — the kind of leverage that compounds on every campaign after it.",
+        "Marketing could define and target promo campaigns on a shared Talon.One + Segment foundation rather than depending on engineering to wire up each one — turning a recurring per-campaign dependency into reusable infrastructure.",
       quote:
-        "Most PMs would hand this to engineering as 'set up the traits for campaign X.' I wrote the webhook payload and the Segment function spec, and built a naming convention off campaignIdentifier so it scales to every future campaign without touching code again.",
+        "The unlock wasn't any single campaign — it was setting up the attributes and rules once so marketing could launch and target promos themselves, instead of filing an engineering ticket every time.",
     },
   },
 ]

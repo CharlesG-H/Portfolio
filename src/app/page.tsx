@@ -90,7 +90,7 @@ export default function Home() {
               className="text-xl text-foreground leading-relaxed"
               style={{ fontFamily: "var(--font-space-grotesk)" }}
             >
-              "Most internal tools solve the wrong problem — they automate the easy parts and leave the painful parts manual."
+              &ldquo;Most internal tools solve the wrong problem — they automate the easy parts and leave the painful parts manual.&rdquo;
             </p>
             <footer className="mt-4 text-xs text-muted uppercase tracking-widest">
               On internal tooling · 2026

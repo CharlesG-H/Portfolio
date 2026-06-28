@@ -1,9 +1,29 @@
 import Container from "@/components/ui/Container";
 import PageHeader from "@/components/ui/PageHeader";
+import Button from "@/components/ui/Button";
 
 export const metadata = {
   title: "About — Charles Chua",
 };
+
+const principles = [
+  {
+    label: "Find the system, not the symptom",
+    body: "A form with too many steps, a 45-minute manual workflow, a promo that needs an engineering ticket every time — I'd rather fix the thing that keeps generating the problem than patch it once.",
+  },
+  {
+    label: "Run the experiment before the argument",
+    body: "I'd rather ship a test with a clear hypothesis than win a meeting. Set it up well, let the data decide, and don't get attached to being right.",
+  },
+  {
+    label: "Build to understand",
+    body: "I read the code, prototype in React and FastAPI, and wire up the tracking myself. Being close to how it actually works makes me a sharper PM — and a faster one.",
+  },
+  {
+    label: "Hand the work back",
+    body: "The best internal tool is one the ops or support team can run without me — or engineering — in the loop. Shipping it is only half the job; making myself unnecessary is the other half.",
+  },
+];
 
 const skills = [
   {
@@ -36,33 +56,6 @@ const skills = [
   },
 ]
 
-const strengths = [
-  {
-    label: "Experimentation & metrics",
-    evidence: "74% reduction in D30 endorsement rate · +47% desktop conversion · +16.7% form conversion — all from structured A/B tests with pre-defined hypotheses",
-  },
-  {
-    label: "AI & automation depth",
-    evidence: "Built an AI quotation pipeline taking a ~45-minute manual quotation step toward a sub-10-minute automated one; uses Claude Code, MCP, and FastAPI in daily work",
-  },
-  {
-    label: "Revenue impact",
-    evidence: "300% gross premium growth and 100% revenue growth on Car Insurance (2022–2024)",
-  },
-  {
-    label: "Technical depth",
-    evidence: "Defined the Talon.One + Segment attribute & targeting setup; built internal tools with React and FastAPI; integrates GTM/dataLayer for tracking",
-  },
-  {
-    label: "Customer lifecycle thinking",
-    evidence: "Renewal Customer Routing, Email Login Migration, Mobile App Revamp (+20% engagement) — all address the post-purchase experience",
-  },
-  {
-    label: "Ops & internal tooling",
-    evidence: "Support Diagnostics Tool (routine policy edits handed back to ops) · Ops Admin Panel (ops team fully self-sufficient) — both shipped without consuming engineering capacity",
-  },
-]
-
 export default function AboutPage() {
   return (
     <Container className="py-14">
@@ -87,9 +80,11 @@ export default function AboutPage() {
           at the system level, not just once.
         </p>
         <p className="text-sm leading-relaxed text-muted">
-          I read code, write specs that don&apos;t need chasing, and run experiments
-          before making decisions. Currently building AI agents and internal tools
-          using Claude Code, MCP, React, and FastAPI alongside my core PM work.
+          What I enjoy most is the hands-on part: reading the code, prototyping the
+          fix, and watching manual work disappear. I write specs that don&apos;t need
+          chasing and run experiments before making decisions. Right now I&apos;m
+          building AI agents and internal tools with Claude Code, MCP, React, and
+          FastAPI alongside my core PM work.
         </p>
       </section>
 
@@ -120,21 +115,26 @@ export default function AboutPage() {
           className="text-xs uppercase tracking-widest text-muted mb-6"
           style={{ fontFamily: "var(--font-space-grotesk)" }}
         >
-          Strengths (evidence-backed)
+          How I work
         </h2>
         <div className="flex flex-col divide-y divide-border">
-          {strengths.map((s) => (
-            <div key={s.label} className="py-4 flex flex-col gap-1">
+          {principles.map((p) => (
+            <div key={p.label} className="py-4 flex flex-col gap-1">
               <span
                 className="text-sm font-medium text-foreground"
                 style={{ fontFamily: "var(--font-space-grotesk)" }}
               >
-                {s.label}
+                {p.label}
               </span>
-              <span className="text-sm text-muted leading-relaxed">{s.evidence}</span>
+              <span className="text-sm text-muted leading-relaxed">{p.body}</span>
             </div>
           ))}
         </div>
+        <p className="text-sm text-muted leading-relaxed mt-6 mb-4">
+          The numbers, the trade-offs, and the experiments that didn&apos;t work
+          live in the case studies.
+        </p>
+        <Button href="/projects">See the work →</Button>
       </section>
 
       <section className="mb-14">

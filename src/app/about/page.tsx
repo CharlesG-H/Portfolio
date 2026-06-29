@@ -63,28 +63,28 @@ export default function AboutPage() {
 
       <section className="mb-14">
         <p className="text-sm leading-relaxed text-foreground mb-4">
-          I&apos;m Charles Chua, a Product Manager based in Singapore with 6 years
-          building and scaling digital insurance products. I currently work at{" "}
-          <span className="font-medium">MoneySmart</span>, driving O2O growth
-          through experimentation and AI-powered tooling. Earlier in my time
-          there, I spent five years building Bubblegum Insurance — Car, Travel,
-          and PA — from
-          early product through API integrations with insurer partners, purchase
-          journey redesigns, and the 2024 mobile app revamp.
+          I&apos;m Charles Chua, a Product Manager in Singapore with 6 years at{" "}
+          <span className="font-medium">MoneySmart</span>{" "}building digital
+          insurance products. I spent five years on Bubblegum, MoneySmart&apos;s
+          white-labelled insurance product — taking Car, Travel, and PA from
+          early build through insurer API integrations, purchase-journey
+          redesigns, and the
+          2024 app revamp. I&apos;ve since moved to O2O, another team at
+          MoneySmart, where I drive growth through experimentation and
+          AI-powered tooling.
         </p>
         <p className="text-sm leading-relaxed text-muted mb-4">
-          I combine product discovery, user research, and conversion optimisation
-          with hands-on prototyping. When I find a recurring bottleneck — a
-          form with too many steps, an advisor workflow that takes 45 minutes,
-          a promo campaign that needs an engineering ticket — I try to solve it
-          at the system level, not just once.
+          I pair product discovery, user research, and conversion optimisation
+          with hands-on prototyping. When I run into a recurring bottleneck, I
+          look past the symptom to the system creating it — and fix it at the
+          root, so it stops coming back.
         </p>
         <p className="text-sm leading-relaxed text-muted">
-          What I enjoy most is the hands-on part: reading the code, prototyping the
-          fix, and watching manual work disappear. I write specs that don&apos;t need
-          chasing and run experiments before making decisions. Right now I&apos;m
-          building AI agents and internal tools with Claude Code, MCP, React, and
-          FastAPI alongside my core PM work.
+          What I enjoy most is getting close to the problem: understanding why
+          it happens, then shaping the solution that actually fixes it — not the
+          easiest one to ship. Increasingly that means putting AI to work,
+          building solutions that make me sharper and faster at the PM craft
+          itself.
         </p>
       </section>
 

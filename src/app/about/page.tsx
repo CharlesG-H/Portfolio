@@ -9,7 +9,7 @@ export const metadata = {
 const principles = [
   {
     label: "Find the system, not the symptom",
-    body: "A form with too many steps, a 45-minute manual workflow, a promo that needs an engineering ticket every time — I'd rather fix the thing that keeps generating the problem than patch it once.",
+    body: "When the same problem keeps landing in the backlog — a manual step that quietly eats hours, a process that only works because one person holds it together — I treat it as a signal, not a task, and go after the system generating it instead of the instance in front of me.",
   },
   {
     label: "Run the experiment before the argument",
@@ -17,7 +17,7 @@ const principles = [
   },
   {
     label: "Build to understand",
-    body: "I read the code, prototype in React and FastAPI, and wire up the tracking myself. Being close to how it actually works makes me a sharper PM — and a faster one.",
+    body: "I read the code, prototype in React and FastAPI, and wire up the tracking myself. The closer I am to how it actually works, the better the calls I make about what to build.",
   },
   {
     label: "Hand the work back",
@@ -27,32 +27,20 @@ const principles = [
 
 const skills = [
   {
-    category: "Product",
-    items: "Roadmapping · Discovery · PRDs · RICE · JTBD",
+    category: "Product & Growth",
+    items: "Roadmapping · Discovery · PRDs · RICE · A/B Testing · Conversion Rate Optimisation · Funnel Analysis",
   },
   {
-    category: "Growth & Experimentation",
-    items: "A/B Testing · Conversion Rate Optimisation · Funnel Analysis",
+    category: "AI & Prototyping",
+    items: "AI Agent Building · Prompt Engineering · Claude Code / Cursor · React · FastAPI · API Integration",
   },
   {
-    category: "AI & Automation",
-    items: "AI Agent Building · Prompt Engineering · MCP · Claude Code / Cursor · AI-Assisted Prototyping",
+    category: "Design & Research",
+    items: "User Research · Usability Testing · Figma",
   },
   {
-    category: "Design & UX",
-    items: "User Research · Usability Testing · Wireframing · Figma",
-  },
-  {
-    category: "Technical & Prototyping",
-    items: "React · FastAPI · API Integration · GTM / dataLayer",
-  },
-  {
-    category: "Delivery",
-    items: "Stakeholder Management · Agile / Scrum · Jira · Confluence",
-  },
-  {
-    category: "Analytics",
-    items: "Holistics · Microsoft Clarity · Google Analytics · Mixpanel · Freshsales / Freshchat / Freshdesk",
+    category: "Delivery & Analytics",
+    items: "Stakeholder Management · Agile / Scrum · Jira / Confluence · Google Analytics · Mixpanel · Microsoft Clarity · Holistics",
   },
 ]
 
@@ -75,16 +63,15 @@ export default function AboutPage() {
         </p>
         <p className="text-sm leading-relaxed text-muted mb-4">
           I pair product discovery, user research, and conversion optimisation
-          with hands-on prototyping. When I run into a recurring bottleneck, I
-          look past the symptom to the system creating it — and fix it at the
-          root, so it stops coming back.
+          with hands-on prototyping, so I can take an idea from problem to
+          working test without waiting in a queue.
         </p>
         <p className="text-sm leading-relaxed text-muted">
           What I enjoy most is getting close to the problem: understanding why
           it happens, then shaping the solution that actually fixes it — not the
-          easiest one to ship. Increasingly that means putting AI to work,
-          building solutions that make me sharper and faster at the PM craft
-          itself.
+          easiest one to ship. Increasingly that means putting AI to work —
+          building the tools and agents that strip the busywork out of the
+          craft, so the hard thinking is where my time goes.
         </p>
       </section>
 
@@ -150,22 +137,30 @@ export default function AboutPage() {
               <span className="text-sm font-medium text-foreground" style={{ fontFamily: "var(--font-space-grotesk)" }}>Product Manager — MoneySmart</span>
               <span className="text-xs text-muted">2020 – Present</span>
             </div>
-            <p className="text-xs text-muted">O2O Growth &amp; AI (Jan 2026–) · Bubblegum Insurance (2020–2025)</p>
+            <p className="text-xs text-muted">O2O Growth &amp; AI (Jan 2026–Current) · Bubblegum Insurance (2020–2025)</p>
           </div>
           <div>
             <div className="flex items-baseline justify-between mb-1">
               <span className="text-sm font-medium text-foreground" style={{ fontFamily: "var(--font-space-grotesk)" }}>Associate Consultant — Zolution</span>
               <span className="text-xs text-muted">2019 – 2020</span>
             </div>
-            <p className="text-xs text-muted">Translated business needs into functional specifications, managed end-to-end implementation</p>
           </div>
-          <div>
-            <div className="flex items-baseline justify-between mb-1">
-              <span className="text-sm font-medium text-foreground" style={{ fontFamily: "var(--font-space-grotesk)" }}>Murdoch University</span>
-              <span className="text-xs text-muted">2018 – 2020</span>
-            </div>
-            <p className="text-xs text-muted">B. Business — International Management &amp; Business Management</p>
+        </div>
+      </section>
+
+      <section className="mb-14">
+        <h2
+          className="text-xs uppercase tracking-widest text-muted mb-6"
+          style={{ fontFamily: "var(--font-space-grotesk)" }}
+        >
+          Education
+        </h2>
+        <div>
+          <div className="flex items-baseline justify-between mb-1">
+            <span className="text-sm font-medium text-foreground" style={{ fontFamily: "var(--font-space-grotesk)" }}>Murdoch University</span>
+            <span className="text-xs text-muted">2018 – 2020</span>
           </div>
+          <p className="text-xs text-muted">B. Business — International Management &amp; Business Management</p>
         </div>
       </section>
 

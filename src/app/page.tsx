@@ -184,10 +184,10 @@ export default function Home() {
             className="text-3xl font-semibold text-white mb-4 tracking-tight"
             style={{ fontFamily: "var(--font-space-grotesk)" }}
           >
-            Currently open to PM roles.
+            Let&apos;s connect and have a conversation.
           </h2>
           <p className="text-sm text-white/60 mb-8">
-            Based in Singapore. Background in insurance, fintech, and AI product. Looking for the next hard problem to own.
+            Based in Singapore. Background in insurtech and fintech, now building product with AI.
           </p>
           <Button href="mailto:charles.csz@hotmail.com" size="lg">Get in touch →</Button>
         </FadeIn>

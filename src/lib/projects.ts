@@ -3,7 +3,10 @@
 export type Project = {
   slug: string
   title: string
-  company: "Bubblegum Insurance" | "MoneySmart O2O" | "MoneySmart"
+  // Company is absent on personal side projects; `side` splits them out into
+  // their own section on the projects page.
+  company?: "Bubblegum Insurance" | "MoneySmart O2O" | "MoneySmart"
+  side?: boolean
   role: "Owner" | "Co-owner" | "Contributor"
   status: Status
   period: string
@@ -23,6 +26,40 @@ export type Project = {
 }
 
 export const projects: Project[] = [
+  // ── Side projects (2026) ─────────────────────────────────────────────────────
+  {
+    slug: "tradeshow-sales-bot",
+    gradient: "from-[#164e63] to-[#0e7490]",
+    title: "Tradeshow Sales Bot",
+    side: true,
+    role: "Owner",
+    status: "Live",
+    period: "Jul 2026",
+    tagline:
+      "A Telegram→Sheets bot I specced and built solo for the trading-card vending team I sell with — parse-or-quarantine by design, live on Google Cloud Run.",
+    summary:
+      "The ~11-person trading-card vending team I sell with at trade shows captures every booth sale as a photo posted to Telegram, then manually retypes it all into a Google Sheet at the end of each day — and that retyping step is where the record breaks. I ran the whole loop myself, discovery to deployment: wrote the PRD, designed a caption grammar sellers can type at the table, built the bot, and shipped it to Google Cloud Run in webhook mode.",
+    outcome: "Shipped solo, discovery to deployment · live on Cloud Run",
+    capabilities: [
+      "Zero-to-one build",
+      "Discovery & PRD",
+      "Parser & grammar design",
+      "Scope negotiation",
+      "Error-handling design",
+      "Serverless deployment",
+    ],
+    body: {
+      problem:
+        "The trading-card vending team I sell with (~11 people) records every booth sale the same way: photograph the item next to the payment screenshot or cash, post it into the show's Telegram topic with a rough caption. Capture is bulletproof — nobody misses a photo. The break happens afterwards, when one person manually transcribes the whole topic into a Google Sheet at the end of each day. Mistypes, double-counts and skipped entries produce the team's recurring named symptom: loose packs going 'missing' — counts that don't reconcile, and evenings spent reconstructing whether items actually sold. Because capture was reliable, the defect was isolated to a single step: manual consolidation. I was honest in the PRD that no quantitative baseline existed — no measured error rate, no packs-lost-per-show — and logged capturing one at the next show as an open question rather than inventing a number.",
+      whatIDid:
+        "I ran it like a real product, not a weekend script: discovery, a PRD with prioritised functional requirements, risks and open questions, then a build-decisions log as spec met reality. Scope was deliberately two-phase — automate capture-to-sheet first, defer the live-inventory system to phase two — under one design principle carried everywhere: for a system whose purpose is an accurate record, a caught gap beats a silent error. The bot never rounds or 'cleans' a parsed figure, and never writes a row it isn't confident in; anything else lands in a Needs Review tab for end-of-day triage.\n\nThe core design problem was the caption grammar — sellers are typing one-handed at a busy table, so every keystroke had to earn its place. Sell and PayNow are assumed defaults, so `2x p $20` is a complete sale record; word-level short forms cover the common items; buybacks ride the sell shape with a flipped type; trades are a one-line shape with a signed cash figure. Mixed carts are grouped by message — one message, one payment — and the bot verifies the line items sum exactly to the typed total, quarantining any mismatch instead of writing it. Even free-text notes got guard rails: a 'note' containing a dollar amount, or a word one typo away from a keyword (`buybak`), is more likely a mistyped sale than a note, so it quarantines.\n\nSpec also had to bend to platform reality. The PRD called for a periodic re-scan to catch deleted messages — then I found the Telegram Bot API can't read history or receive delete events at all, so I renegotiated that requirement into an admin /void command and made the Telegram message ID the row's identity: processing is idempotent, a repost is a new row, a delete voids rather than erases. I also cut scope on purpose — seller-identity capture was dropped because the message link already identifies the poster, and the sheet slimmed to 10 columns.\n\nThen I built it, one requirement at a time with a parser test suite, and deployed to Google Cloud Run in webhook mode: Telegram pushes each message over HTTPS, the service scales to zero between messages, tracking state lives in a hidden sheet tab so it survives redeploys, and the service is capped at one instance to protect the single-writer assumption on the sheet. Tracking is opt-in per show topic via /track, with sheet tabs auto-created per show.",
+      result:
+        "v1 is live: deployed to Cloud Run in July 2026, with a one-page reference card out to the team. I'm honest about where this sits — the first live show under the bot hasn't happened yet, so the success metric (zero manually keyed rows, with daily cash and PayNow totals that tie out to payment evidence) is still a target, not a result. What I can already claim: the full loop from recorded discovery to deployed service was done solo, the grammar is locked and test-covered, and every unparseable caption now has somewhere safe to go instead of silently corrupting the record. The structured rows are also the deliberate foundation for phase two — a live-inventory system that only works if the data underneath it is trustworthy.",
+      quote:
+        "For a system whose whole purpose is an accurate record, a caught gap beats a silent error. The bot never guesses — anything it can't parse cleanly lands in Needs Review instead of being written into the sheet wrong.",
+    },
+  },
+
   // â”€â”€ MoneySmart O2O (Jan 2026 – Present) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     slug: "o2o-lead-funnel",
@@ -319,6 +356,9 @@ export const featuredProjects = featuredOrder.map(
   (slug) => projects.find((p) => p.slug === slug)!
 )
 
+// Personal builds outside work — shown in their own "Side projects" section.
+export const sideProjects = projects.filter((p) => p.side)
+
 // Everything else — shown as a compact "also shipped" strip, not full cards.
-export const otherProjects = projects.filter((p) => !p.featured)
+export const otherProjects = projects.filter((p) => !p.featured && !p.side)
 

@@ -27,7 +27,13 @@ export async function generateMetadata(props: PageProps<"/projects/[slug]">) {
   const { slug } = await props.params;
   const project = projects.find((p) => p.slug === slug);
   if (!project) return {};
-  return { title: `${project.title} — Charles Chua` };
+  const description = project.tagline ?? project.summary;
+  return {
+    title: project.title,
+    description,
+    openGraph: { title: project.title, description },
+    twitter: { card: "summary_large_image", title: project.title, description },
+  };
 }
 
 export default async function ProjectPage(props: PageProps<"/projects/[slug]">) {
@@ -67,7 +73,7 @@ export default async function ProjectPage(props: PageProps<"/projects/[slug]">) 
             </div>
           </FadeIn>
 
-          {project.metric && (
+          {project.outcome && (
             <FadeIn delay={100}>
               <div className="rounded-xl p-5 mb-8 bg-tint border border-tint-border">
                 <p className="text-xs text-accent-soft uppercase tracking-widest mb-2 font-medium">
@@ -79,7 +85,9 @@ export default async function ProjectPage(props: PageProps<"/projects/[slug]">) 
                 >
                   {project.outcome}
                 </p>
-                <p className="text-sm text-accent font-semibold mt-1">{project.metric}</p>
+                {project.metric && (
+                  <p className="text-sm text-accent font-semibold mt-1">{project.metric}</p>
+                )}
               </div>
             </FadeIn>
           )}

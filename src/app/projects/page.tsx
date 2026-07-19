@@ -7,7 +7,9 @@ import PageHeader from "@/components/ui/PageHeader";
 import ProjectCard from "@/components/ProjectCard";
 
 export const metadata = {
-  title: "Projects — Charles Chua",
+  title: "Projects",
+  description:
+    "Case studies in growth, zero-to-one builds, and internal tooling — each owned end-to-end, with the real numbers and decisions behind them.",
 };
 
 // Compact list row shared by the "Also shipped" and "Side projects" strips.
@@ -30,11 +32,15 @@ function ProjectRow({ project, delay }: { project: Project; delay: number }) {
             {project.tagline ?? project.summary}
           </span>
         </div>
-        {project.metric && (
+        {project.metric ? (
           <span className="hidden sm:inline-flex items-center justify-self-end rounded-sm border border-accent/20 bg-accent/5 px-2.5 py-1 text-xs font-semibold text-accent whitespace-nowrap">
             {project.metric}
           </span>
-        )}
+        ) : project.side ? (
+          <span className="hidden sm:inline-flex items-center justify-self-end rounded-sm border border-border bg-subtle px-2.5 py-1 text-xs font-medium text-muted whitespace-nowrap">
+            Personal · {project.status}
+          </span>
+        ) : null}
       </Link>
     </FadeIn>
   );

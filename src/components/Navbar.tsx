@@ -57,7 +57,8 @@ export default function Navbar() {
           <Link href="/projects" className="hover:text-foreground transition-colors duration-300">Projects</Link>
           <Link href="/about" className="hover:text-foreground transition-colors duration-300">About</Link>
 
-          <div className="flex items-center gap-3 border-l border-border pl-6">
+          {/* Socials live in the footer on small screens — keeps the bar uncramped. */}
+          <div className="hidden sm:flex items-center gap-3 border-l border-border pl-6">
             {socialLinks.map((s) => (
               <a
                 key={s.label}

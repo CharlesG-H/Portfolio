@@ -17,9 +17,27 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Charles Chua — Product Manager",
+  metadataBase: new URL("https://charlesc.vercel.app"),
+  title: {
+    default: "Charles Chua — Product Manager",
+    template: "%s — Charles Chua",
+  },
   description:
     "Product portfolio of Charles Chua — PM at Bubblegum and MoneySmart, focused on growth, customer lifecycle, and platform product.",
+  openGraph: {
+    type: "website",
+    siteName: "Charles Chua — Product Manager",
+    url: "/",
+    title: "Charles Chua — Product Manager",
+    description:
+      "Growth experiments, zero-to-one builds, and internal tooling — case studies with the real numbers and decisions behind them.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Charles Chua — Product Manager",
+    description:
+      "Growth experiments, zero-to-one builds, and internal tooling — case studies with the real numbers and decisions behind them.",
+  },
 };
 
 export default function RootLayout({

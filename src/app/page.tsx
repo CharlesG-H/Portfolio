@@ -77,7 +77,7 @@ export default function Home() {
             {[
               { value: "300%", label: "revenue growth on a core product line" },
               { value: "+63%", label: "more qualified leads from a funnel redesign" },
-              { value: "74%", label: "fewer post-purchase support requests" },
+              { value: "74%", label: "fewer post-purchase policy changes" },
               { value: "6 yrs", label: "building digital products" },
             ].map((stat) => (
               <AnimatedCounter key={stat.label} value={stat.value} label={stat.label} />
@@ -93,7 +93,7 @@ export default function Home() {
               &ldquo;Most internal tools solve the wrong problem — they automate the easy parts and leave the painful parts manual.&rdquo;
             </p>
             <footer className="mt-4 text-xs text-muted uppercase tracking-widest">
-              On internal tooling · 2026
+              Charles, on internal tooling
             </footer>
           </blockquote>
         </FadeIn>

@@ -3,7 +3,9 @@ import PageHeader from "@/components/ui/PageHeader";
 import Button from "@/components/ui/Button";
 
 export const metadata = {
-  title: "About — Charles Chua",
+  title: "About",
+  description:
+    "Product Manager in Singapore with 6 years in insurtech and fintech — how I work, what I've shipped, and where to reach me.",
 };
 
 const principles = [

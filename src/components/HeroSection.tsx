@@ -1,60 +1,50 @@
 "use client";
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
-import { useEffect, useState } from "react";
-import FadeIn from "@/components/FadeIn";
+import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import AuroraBackdrop from "@/components/AuroraBackdrop";
-
-const headlines = [
-  "Product work that moves metrics.",
-  "Discovery that shapes what gets built.",
-  "Growth work that sticks. Tooling that scales.",
-];
+import Button from "@/components/ui/Button";
 
 export default function HeroSection() {
   const { scrollY } = useScroll();
-  const [index, setIndex] = useState(0);
+  const reduceMotion = useReducedMotion();
 
-  const contentY = useTransform(scrollY, [0, 600], [0, 48]);
-  const contentOpacity = useTransform(scrollY, [0, 380], [1, 0]);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((i) => (i + 1) % headlines.length);
-    }, 3500);
-    return () => clearInterval(interval);
-  }, []);
+  // Gentle parallax only — content never fades out while the section is
+  // still on screen (a full fade left the hero a blank dark block).
+  const contentY = useTransform(scrollY, [0, 600], [0, reduceMotion ? 0 : 48]);
 
   return (
-    <section className="relative overflow-hidden bg-foreground min-h-screen flex items-center">
+    <section className="relative overflow-hidden bg-foreground min-h-[85svh] flex items-center">
       <AuroraBackdrop parallax />
 
       <motion.div
-        style={{ y: contentY, opacity: contentOpacity }}
-        className="relative z-10 max-w-5xl mx-auto px-6 py-28 w-full"
+        style={{ y: contentY }}
+        className="relative z-10 max-w-5xl mx-auto px-6 py-24 w-full"
       >
-        <FadeIn delay={0}>
-          <p className="text-xs text-muted uppercase tracking-widest mb-6">
-            Product Manager · 6 years · Singapore
-          </p>
-        </FadeIn>
+        <p className="text-xs text-muted uppercase tracking-widest mb-6">
+          Charles Chua · Product Manager · Singapore
+        </p>
 
-        <div className="min-h-[8rem] flex items-start">
-          <AnimatePresence mode="wait">
-            <motion.h1
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5, ease: "easeInOut" }}
-              className="text-5xl font-semibold tracking-tight leading-tight text-white"
-              style={{ fontFamily: "var(--font-space-grotesk)" }}
-            >
-              {headlines[index]}
-            </motion.h1>
-          </AnimatePresence>
+        <h1
+          className="text-5xl md:text-6xl font-semibold tracking-tight leading-[1.05] text-white max-w-3xl"
+          style={{ fontFamily: "var(--font-space-grotesk)" }}
+        >
+          Product work that moves metrics.
+        </h1>
+
+        <p className="mt-6 text-base md:text-lg text-white/60 leading-relaxed max-w-xl">
+          Six years across insurtech and fintech — finding the funnel leak,
+          running the experiment, and shipping the fix. Growth work that
+          sticks, and internal tooling that takes the manual work off teams.
+        </p>
+
+        <div className="mt-9 flex items-center gap-6">
+          <Button href="/projects" size="lg">
+            View projects →
+          </Button>
+          <Button href="/about" variant="ghost" size="lg" className="text-white/60 hover:text-white">
+            About me
+          </Button>
         </div>
       </motion.div>
-
     </section>
   );
 }

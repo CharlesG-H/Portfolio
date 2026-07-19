@@ -1,5 +1,5 @@
 "use client";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform, useReducedMotion } from "framer-motion";
 import { useRef } from "react";
 
 export default function TiltCard({
@@ -10,6 +10,7 @@ export default function TiltCard({
   className?: string;
 }) {
   const ref = useRef<HTMLDivElement>(null);
+  const reduceMotion = useReducedMotion();
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
@@ -20,6 +21,7 @@ export default function TiltCard({
   const rotateY = useTransform(xSpring, [-0.5, 0.5], ["-5deg", "5deg"]);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (reduceMotion) return;
     const rect = ref.current?.getBoundingClientRect();
     if (!rect) return;
     x.set((e.clientX - rect.left) / rect.width - 0.5);

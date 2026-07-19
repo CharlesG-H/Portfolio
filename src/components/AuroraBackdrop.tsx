@@ -1,14 +1,16 @@
 "use client";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 
 // Dark "aurora" backdrop: drifting gradient blobs + faint grid overlay.
 // Place inside a `relative overflow-hidden bg-foreground` parent.
 // `parallax` ties blob drift to scroll (used by the hero); off = static (used by the closing CTA).
 export default function AuroraBackdrop({ parallax = false }: { parallax?: boolean }) {
   const { scrollY } = useScroll();
-  const y1 = useTransform(scrollY, [0, 800], [0, parallax ? -160 : 0]);
-  const y2 = useTransform(scrollY, [0, 800], [0, parallax ? -90 : 0]);
-  const y3 = useTransform(scrollY, [0, 800], [0, parallax ? -220 : 0]);
+  const reduceMotion = useReducedMotion();
+  const drift = parallax && !reduceMotion;
+  const y1 = useTransform(scrollY, [0, 800], [0, drift ? -160 : 0]);
+  const y2 = useTransform(scrollY, [0, 800], [0, drift ? -90 : 0]);
+  const y3 = useTransform(scrollY, [0, 800], [0, drift ? -220 : 0]);
 
   return (
     <>

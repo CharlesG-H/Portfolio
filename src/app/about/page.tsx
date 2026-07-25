@@ -1,6 +1,7 @@
 import Container from "@/components/ui/Container";
 import PageHeader from "@/components/ui/PageHeader";
 import Button from "@/components/ui/Button";
+import FadeIn from "@/components/FadeIn";
 
 export const metadata = {
   title: "About — Charles Chua",
@@ -9,7 +10,7 @@ export const metadata = {
 const principles = [
   {
     label: "Find the system, not the symptom",
-    body: "When the same problem keeps landing in the backlog — a manual step that quietly eats hours, a process that only works because one person holds it together — I treat it as a signal, not a task, and go after the system generating it instead of the instance in front of me.",
+    body: "When the same problem keeps landing in the backlog (a manual step that quietly eats hours, a process that only works because one person holds it together), I treat it as a signal, not a task, and go after the system generating it instead of the instance in front of me.",
   },
   {
     label: "Run the experiment before the argument",
@@ -21,7 +22,7 @@ const principles = [
   },
   {
     label: "Hand the work back",
-    body: "The best internal tool is one the ops or support team can run without me — or engineering — in the loop. Shipping it is only half the job; making myself unnecessary is the other half.",
+    body: "The best internal tool is one the ops or support team can run without me (or engineering) in the loop. Shipping it is only half the job; making myself unnecessary is the other half.",
   },
 ];
 
@@ -47,14 +48,19 @@ const skills = [
 export default function AboutPage() {
   return (
     <Container className="py-14">
-      <PageHeader title="About" />
+      <PageHeader
+        eyebrow="Profile"
+        title="About"
+        intro="How I got here, how I work, and what I care about."
+      />
 
       <section className="mb-14">
+        <FadeIn>
         <p className="text-sm leading-relaxed text-foreground mb-4">
-          I&apos;m Charles Chua, a Product Manager in Singapore with 6 years at{" "}
+          I&apos;m Charles Chua, a Product Manager in Singapore with six years at{" "}
           <span className="font-medium">MoneySmart</span>{" "}building digital
           insurance products. I spent five years on Bubblegum, MoneySmart&apos;s
-          white-labelled insurance product — taking Car, Travel, and PA from
+          white-labelled insurance product, taking Car, Travel, and PA from
           early build through insurer API integrations, purchase-journey
           redesigns, and the
           2024 app revamp. I&apos;ve since moved to O2O, another team at
@@ -68,14 +74,16 @@ export default function AboutPage() {
         </p>
         <p className="text-sm leading-relaxed text-muted">
           What I enjoy most is getting close to the problem: understanding why
-          it happens, then shaping the solution that actually fixes it — not the
-          easiest one to ship. Increasingly that means putting AI to work —
+          it happens, then shaping the solution that actually fixes it, not the
+          easiest one to ship. Increasingly that means putting AI to work,
           building the tools and agents that strip the busywork out of the
           craft, so the hard thinking is where my time goes.
         </p>
+        </FadeIn>
       </section>
 
       <section className="mb-14">
+        <FadeIn>
         <h2
           className="text-xs uppercase tracking-widest text-muted mb-6"
           style={{ fontFamily: "var(--font-space-grotesk)" }}
@@ -95,9 +103,11 @@ export default function AboutPage() {
             </div>
           ))}
         </div>
+        </FadeIn>
       </section>
 
       <section className="mb-14">
+        <FadeIn>
         <h2
           className="text-xs uppercase tracking-widest text-muted mb-6"
           style={{ fontFamily: "var(--font-space-grotesk)" }}
@@ -121,10 +131,12 @@ export default function AboutPage() {
           The numbers, the trade-offs, and the experiments that didn&apos;t work
           live in the case studies.
         </p>
-        <Button href="/projects">See the work →</Button>
+        <Button href="/projects">View projects →</Button>
+        </FadeIn>
       </section>
 
       <section className="mb-14">
+        <FadeIn>
         <h2
           className="text-xs uppercase tracking-widest text-muted mb-6"
           style={{ fontFamily: "var(--font-space-grotesk)" }}
@@ -134,21 +146,23 @@ export default function AboutPage() {
         <div className="flex flex-col gap-6">
           <div>
             <div className="flex items-baseline justify-between mb-1">
-              <span className="text-sm font-medium text-foreground" style={{ fontFamily: "var(--font-space-grotesk)" }}>Product Manager — MoneySmart</span>
+              <span className="text-sm font-medium text-foreground" style={{ fontFamily: "var(--font-space-grotesk)" }}>Product Manager · MoneySmart</span>
               <span className="text-xs text-muted">2020 – Present</span>
             </div>
             <p className="text-xs text-muted">O2O Growth &amp; AI (Jan 2026–Current) · Bubblegum Insurance (2020–2025)</p>
           </div>
           <div>
             <div className="flex items-baseline justify-between mb-1">
-              <span className="text-sm font-medium text-foreground" style={{ fontFamily: "var(--font-space-grotesk)" }}>Associate Consultant — Zolution</span>
+              <span className="text-sm font-medium text-foreground" style={{ fontFamily: "var(--font-space-grotesk)" }}>Associate Consultant · Zolution</span>
               <span className="text-xs text-muted">2019 – 2020</span>
             </div>
           </div>
         </div>
+        </FadeIn>
       </section>
 
       <section className="mb-14">
+        <FadeIn>
         <h2
           className="text-xs uppercase tracking-widest text-muted mb-6"
           style={{ fontFamily: "var(--font-space-grotesk)" }}
@@ -160,11 +174,13 @@ export default function AboutPage() {
             <span className="text-sm font-medium text-foreground" style={{ fontFamily: "var(--font-space-grotesk)" }}>Murdoch University</span>
             <span className="text-xs text-muted">2018 – 2020</span>
           </div>
-          <p className="text-xs text-muted">B. Business — International Management &amp; Business Management</p>
+          <p className="text-xs text-muted">B. Business · International Management &amp; Business Management</p>
         </div>
+        </FadeIn>
       </section>
 
       <section>
+        <FadeIn>
         <h2
           className="text-xs uppercase tracking-widest text-muted mb-6"
           style={{ fontFamily: "var(--font-space-grotesk)" }}
@@ -178,6 +194,7 @@ export default function AboutPage() {
           charles.csz@hotmail.com →
         </a>
         <p className="text-xs text-muted mt-2">Singapore</p>
+        </FadeIn>
       </section>
     </Container>
   );

@@ -13,17 +13,17 @@ export default function PageHeader({
 }) {
   return (
     <FadeIn>
-      <header className="mb-12 md:mb-16">
+      <header className="mb-14">
         {eyebrow && (
-          <p className="text-xs uppercase tracking-widest text-accent font-medium font-display mb-3">
+          <p className="text-xs uppercase tracking-widest text-accent font-medium font-display mb-4">
             {eyebrow}
           </p>
         )}
-        <h1 className="text-4xl font-bold text-foreground leading-tight font-display">
+        <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-foreground leading-[1.05] font-display">
           {title}
         </h1>
         {intro && (
-          <p className="mt-4 text-sm text-muted leading-relaxed max-w-xl">{intro}</p>
+          <p className="mt-5 text-base text-muted leading-relaxed max-w-xl">{intro}</p>
         )}
       </header>
     </FadeIn>

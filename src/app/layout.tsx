@@ -19,7 +19,7 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   title: "Charles Chua — Product Manager",
   description:
-    "Product portfolio of Charles Chua — PM at Bubblegum and MoneySmart, focused on growth, customer lifecycle, and platform product.",
+    "Product portfolio of Charles Chua, PM at Bubblegum and MoneySmart, focused on growth, customer lifecycle, and platform product.",
 };
 
 export default function RootLayout({

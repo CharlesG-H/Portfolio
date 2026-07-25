@@ -5,7 +5,7 @@ import FadeIn from "@/components/FadeIn";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import HeroSection from "@/components/HeroSection";
 import TiltCard from "@/components/TiltCard";
-import ProjectCard from "@/components/ProjectCard";
+import IndexRow from "@/components/IndexRow";
 // import TweetWall from "@/components/TweetWall"; // re-enable once real testimonials are added
 import TargetIcon from "@/components/icons/target-icon";
 import ChartLineIcon from "@/components/icons/chart-line-icon";
@@ -90,7 +90,7 @@ export default function Home() {
               className="text-xl text-foreground leading-relaxed"
               style={{ fontFamily: "var(--font-space-grotesk)" }}
             >
-              &ldquo;Most internal tools solve the wrong problem — they automate the easy parts and leave the painful parts manual.&rdquo;
+              &ldquo;Most internal tools solve the wrong problem. They automate the easy parts and leave the painful parts manual.&rdquo;
             </p>
             <footer className="mt-4 text-xs text-muted uppercase tracking-widest">
               On internal tooling · 2026
@@ -144,31 +144,34 @@ export default function Home() {
       {/* ── Selected work ─────────────────────────────────────────────────── */}
       <section className="py-28">
         <div className="max-w-5xl mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-[260px_1fr] gap-12 items-start">
-
-            {/* Sticky sidebar */}
-            <FadeIn>
-              <div className="md:sticky md:top-[80px]">
+          <FadeIn>
+            <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-10">
+              <div>
+                <p
+                  className="text-xs uppercase tracking-widest text-accent mb-4 font-medium"
+                  style={{ fontFamily: "var(--font-space-grotesk)" }}
+                >
+                  Selected work
+                </p>
                 <h2
-                  className="text-4xl font-bold text-foreground leading-tight mb-4"
+                  className="text-4xl font-bold text-foreground leading-tight"
                   style={{ fontFamily: "var(--font-space-grotesk)" }}
                 >
                   Projects
                 </h2>
-                <p className="text-sm text-muted leading-relaxed mb-6">
-                  Three projects. Each owned end-to-end — from problem framing to shipping and measuring what changed.
+                <p className="mt-4 text-sm text-muted leading-relaxed max-w-md">
+                  Three projects. Each owned end-to-end, from problem framing to shipping and measuring what changed.
                 </p>
-                <Button href="/projects">View all projects →</Button>
               </div>
-            </FadeIn>
-
-            {/* Scrolling project cards — top 3 as a teaser, full set lives on /projects */}
-            <div className="flex flex-col gap-6">
-              {featuredProjects.slice(0, 3).map((project, i) => (
-                <ProjectCard key={project.slug} project={project} delay={i * 100} />
-              ))}
+              <Button href="/projects">View projects →</Button>
             </div>
+          </FadeIn>
 
+          {/* top 3 as a teaser, full set lives on /projects — same index rows */}
+          <div className="flex flex-col">
+            {featuredProjects.slice(0, 3).map((project, i) => (
+              <IndexRow key={project.slug} project={project} n={i + 1} large />
+            ))}
           </div>
         </div>
       </section>

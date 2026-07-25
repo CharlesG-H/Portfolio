@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion"
 import { useEffect, useState } from "react";
 import FadeIn from "@/components/FadeIn";
 import AuroraBackdrop from "@/components/AuroraBackdrop";
+import Button from "@/components/ui/Button";
 
 const headlines = [
   "Product work that moves metrics.",
@@ -33,12 +34,12 @@ export default function HeroSection() {
         className="relative z-10 max-w-5xl mx-auto px-6 py-28 w-full"
       >
         <FadeIn delay={0}>
-          <p className="text-xs text-muted uppercase tracking-widest mb-6">
-            Product Manager · 6 years · Singapore
+          <p className="text-xs text-white/70 uppercase tracking-widest mb-6">
+            Charles Chua · Product Manager · Singapore
           </p>
         </FadeIn>
 
-        <div className="min-h-[8rem] flex items-start">
+        <div className="min-h-[8rem] flex items-center">
           <AnimatePresence mode="wait">
             <motion.h1
               key={index}
@@ -53,6 +54,22 @@ export default function HeroSection() {
             </motion.h1>
           </AnimatePresence>
         </div>
+
+        <FadeIn delay={100}>
+          <p className="mt-6 text-base md:text-lg text-white/80 leading-relaxed max-w-xl">
+            Six years across insurtech and fintech, from growth experiments to
+            internal tooling.
+          </p>
+
+          <div className="mt-9 flex items-center gap-6">
+            <Button href="/projects" size="lg">
+              View projects →
+            </Button>
+            <Button href="/about" variant="ghost" size="lg" className="text-white/60 hover:text-white">
+              About me
+            </Button>
+          </div>
+        </FadeIn>
       </motion.div>
 
     </section>

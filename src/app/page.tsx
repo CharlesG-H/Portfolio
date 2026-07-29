@@ -25,7 +25,7 @@ const skills = [
   },
   {
     title: "AI & Automation",
-    blurb: "Build AI agents and internal tools that take manual work off the team.",
+    blurb: "Build internal tools that take manual work off the team.",
     icon: <BrainCircuitIcon size={40} strokeWidth={1.8} />,
   },
   {

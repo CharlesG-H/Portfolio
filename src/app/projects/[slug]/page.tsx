@@ -1,8 +1,9 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
-import { projects } from "@/lib/projects";
+import { projects, gradientStops } from "@/lib/projects";
 import FadeIn from "@/components/FadeIn";
 import CaseStudyToC from "@/components/CaseStudyToC";
-import Button from "@/components/ui/Button";
+import AuroraBackdrop from "@/components/AuroraBackdrop";
 import Container from "@/components/ui/Container";
 
 export function generateStaticParams() {
@@ -36,39 +37,42 @@ export default async function ProjectPage(props: PageProps<"/projects/[slug]">) 
   if (!project) notFound();
 
   return (
-    <Container className="py-14">
-      <FadeIn>
-        <Button href="/projects" variant="ghost" size="sm" className="mb-8">
-          ← Projects
-        </Button>
-      </FadeIn>
+    <>
+      {/* ── Masthead ── full-bleed dark band, aurora tinted to this project's
+          own gradient so the colour identity from the index carries through. */}
+      <section className="relative overflow-hidden bg-foreground">
+        <AuroraBackdrop compact colors={gradientStops(project.gradient)} />
+        <Container className="relative py-16">
+          {/* Plain link rather than Button ghost: that variant hardcodes
+              text-muted, which is unreadable on the dark band. */}
+          <Link
+            href="/projects"
+            className="inline-flex items-center text-xs font-medium text-white/60 hover:text-white transition-colors duration-300 mb-8"
+          >
+            ← Projects
+          </Link>
+          <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-white leading-[1.1] font-display">
+            {project.title}
+          </h1>
+          {project.tagline && (
+            <p className="mt-4 text-base text-white/70 leading-relaxed max-w-2xl">
+              {project.tagline}
+            </p>
+          )}
+          <div className="mt-6 flex items-center gap-3 text-xs text-white/50">
+            <span>{project.role}</span>
+            <span>·</span>
+            <span>{project.period}</span>
+          </div>
+        </Container>
+      </section>
 
+      <Container className="py-14 mb-20">
       <div className="grid grid-cols-1 md:grid-cols-[1fr_180px] gap-8 items-start">
         {/* ── Main content ── */}
         <div className="bg-card rounded-2xl border border-border p-8">
-          <FadeIn delay={60}>
-            <div className="mb-8">
-              <h1
-                className="text-2xl font-semibold tracking-tight text-foreground mb-2"
-                style={{ fontFamily: "var(--font-space-grotesk)" }}
-              >
-                {project.title}
-              </h1>
-              {project.tagline && (
-                <p className="text-base text-muted leading-relaxed mb-4 max-w-2xl">
-                  {project.tagline}
-                </p>
-              )}
-              <div className="flex items-center gap-3 text-xs text-muted">
-                <span>{project.role}</span>
-                <span>·</span>
-                <span>{project.period}</span>
-              </div>
-            </div>
-          </FadeIn>
-
           {project.metric && (
-            <FadeIn delay={100}>
+            <FadeIn>
               <div className="rounded-xl p-5 mb-8 bg-tint border border-tint-border">
                 <p className="text-xs text-accent-soft uppercase tracking-widest mb-2 font-medium">
                   Outcome
@@ -157,6 +161,7 @@ export default async function ProjectPage(props: PageProps<"/projects/[slug]">) 
         {/* ── Sticky ToC ── */}
         <CaseStudyToC />
       </div>
-    </Container>
+      </Container>
+    </>
   );
 }

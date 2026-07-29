@@ -341,3 +341,13 @@ export const otherProjects = projects.filter(
   (p) => !p.side && !highlighted.has(p.slug)
 )
 
+// Pulls the two hex stops out of a stored gradient class ("from-[#164e63]
+// to-[#0e7490]") so the same colour identity a project shows on the index can
+// tint its case-study masthead. Falls back to the site accent palette if a
+// gradient is ever written in a shape this doesn't recognise.
+export function gradientStops(gradient: string): [string, string, string] {
+  const [from, to] = gradient.match(/#[0-9a-fA-F]{6}/g) ?? []
+  if (!from || !to) return ["#2563eb", "#7c3aed", "#06b6d4"]
+  return [to, from, to]
+}
+

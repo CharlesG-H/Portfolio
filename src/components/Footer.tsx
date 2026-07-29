@@ -35,9 +35,12 @@ const socialLinks = [
   },
 ];
 
+// No top margin: the footer sits in the root layout and can't know what
+// precedes it. Pages that end on content add their own breathing room, while a
+// full-bleed band (the home CTA) runs flush into the footer instead.
 export default function Footer() {
   return (
-    <footer className="border-t border-border mt-20">
+    <footer className="border-t border-border">
       <div className="max-w-5xl mx-auto px-6 py-12">
         {/* Top row */}
         <div className="flex flex-col md:flex-row md:items-start justify-between gap-8">

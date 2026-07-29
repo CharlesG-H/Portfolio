@@ -7,7 +7,7 @@ import IndexRow from "@/components/IndexRow";
 export const metadata = {
   title: "Projects — Charles Chua",
   description:
-    "Case studies in growth, zero-to-one builds, and internal tooling — each owned end-to-end, with the real numbers and decisions behind them.",
+    "Case studies in growth, zero-to-one builds, and internal tooling: each owned end-to-end, with the real numbers and decisions behind them.",
 };
 
 function GroupLabel({ text, count }: { text: string; count: number }) {
@@ -31,7 +31,7 @@ export default function WorkPage() {
   const totalCount = workCount + sideProjects.length;
 
   return (
-    <Container className="py-14">
+    <Container className="py-14 mb-20">
       {/* header */}
       <header className="mb-14">
         <FadeIn>

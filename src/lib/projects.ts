@@ -28,9 +28,9 @@ export type Project = {
 export const projects: Project[] = [
   // ── Side projects (2026) ─────────────────────────────────────────────────────
   {
-    slug: "tradeshow-sales-bot",
+    slug: "sales-capture-reconciliation",
     gradient: "from-[#164e63] to-[#0e7490]",
-    title: "Tradeshow Sales Bot",
+    title: "Sales Capture & Reconciliation",
     side: true,
     role: "Owner",
     status: "Live",

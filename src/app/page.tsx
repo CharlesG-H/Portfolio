@@ -75,10 +75,10 @@ export default function Home() {
         <FadeIn className="w-full max-w-4xl">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center pb-14 border-b border-border">
             {[
-              { value: "300%", label: "revenue growth on a core product line" },
-              { value: "+63%", label: "more qualified leads from a funnel redesign" },
-              { value: "74%", label: "fewer post-purchase support requests" },
-              { value: "6 yrs", label: "building digital products" },
+              { value: "+300%", label: "gross premium on a core product line" },
+              { value: "+14%", label: "value per qualified lead, on 19% fewer leads" },
+              { value: "74%", label: "fewer post-purchase policy changes" },
+              { value: "S$7.62M", label: "premium transacted across web and app" },
             ].map((stat) => (
               <AnimatedCounter key={stat.label} value={stat.value} label={stat.label} />
             ))}

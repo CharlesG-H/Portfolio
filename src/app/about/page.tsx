@@ -134,7 +134,11 @@ export default function AboutPage() {
               <span className="text-sm font-medium text-foreground font-display">Product Manager · MoneySmart</span>
               <span className="text-sm text-muted shrink-0 tabular-nums">2020 – Present</span>
             </div>
-            <p className="text-sm text-muted">O2O Growth &amp; AI (2026 – Present) · Bubblegum Insurance (2020 – 2025)</p>
+            {/* Two axes, both read forwards, because the page's job is "how I
+                got here": titles on one line, the teams they were held in on
+                the next. */}
+            <p className="text-sm text-muted">Product Analyst (2020 – 2022) · Product Owner (2022 – 2024) · Product Manager (2024 – Present)</p>
+            <p className="text-sm text-muted">Bubblegum Insurance (2020 – 2025) · O2O Growth &amp; AI (2026 – Present)</p>
           </div>
         </div>
         </FadeIn>

@@ -31,7 +31,7 @@ const principles = [
   },
   {
     label: "Build to understand",
-    body: "I read the code, prototype in React and FastAPI, and wire up the tracking myself. The closer I am to how it actually works, the better the calls I make about what to build.",
+    body: "I read the code, prototype in React and Python, and wire up the tracking myself. The closer I am to how it actually works, the better the calls I make about what to build.",
   },
   {
     label: "Hand the work back",
@@ -46,7 +46,7 @@ const skills = [
   },
   {
     category: "AI & Prototyping",
-    items: "Rapid Prototyping · Workflow Automation · Prompt Engineering · Claude Code / Cursor · React · FastAPI · API Integration",
+    items: "Rapid Prototyping · Workflow Automation · Prompt Engineering · Claude Code / Cursor · TypeScript / React · Python · API Integration",
   },
   {
     category: "Design & Research",

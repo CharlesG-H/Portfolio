@@ -118,6 +118,40 @@ export const projects: Project[] = [
     },
   },
 
+  {
+    slug: "products-dashboard",
+        gradient: "from-[#134e4a] to-[#0d9488]",
+    title: "Post-Purchase Products Dashboard",
+    company: "MoneySmart O2O",
+    role: "Owner",
+    status: "In Progress",
+    period: "Q2 2026",
+    tagline:
+      "O2O customers had no place to see what they'd bought, so every status question went back to their agent. I specced the surface that gives them one, and wrote the kill threshold before launch.",
+    summary:
+      "MoneySmart wins the transaction and loses the relationship. After buying through the O2O channel, customers had nowhere to see their policy, its status, or what came next, so every post-purchase question routed back to their agent and they re-shopped cold on the next need. I owned the pitch, the PRD and the prototype for a products dashboard: a card surface pre-populated from the CRM the moment a deal binds, designed to be honest about how fresh its own data is, on a three-week pilot clock.",
+    outcome:
+      "Pitch, PRD and prototype owned end to end · car-first scope · Build/Iterate/Kill thresholds fixed before launch",
+    capabilities: [
+      "Zero-to-one definition",
+      "Metric & threshold design",
+      "Scope sequencing",
+      "Trust & data integrity",
+      "Systems design",
+      "Regulatory constraints",
+    ],
+    body: {
+      problem:
+        "MoneySmart wins the transaction and loses the relationship. A customer who bought insurance through the O2O channel (phone, WhatsApp, or directly with an agent) had no surface of their own afterwards: no place to see what they'd bought, what state it was in, or what to do next. Every post-purchase question, which insurer am I with, what's my premium, when does it expire, where are my documents, went back to the same agent. And on the next need, customers re-shopped cold on Google or went insurer-direct rather than returning to us.\n\nThree constraints made this harder than 'build a dashboard'. Most O2O purchases happen logged out, so at the point of sale there is usually no MoneySmart account to show a card to. There is no API integration with any insurer, so documents arrive by a manual path 3 to 5 business days after bind, and any change a customer makes directly with their insurer is invisible to us. And our web analytics cannot separate O2O customers from any other logged-in user, so the obvious success measure, 'did O2O customers come back more', was not measurable at all.",
+      whatIDid:
+        "I wrote the pitch and the PRD, and the first decision was what not to claim. This is hygiene foundation: it does not sell anything. The revenue mechanics everyone wanted to talk about, renewal nudges, cross-sell, points conversion, all sit in later phases and all need a surface that already holds the customer's products. So I argued Phase 1 on the unlock rather than a revenue number and defended that through pitch review. The alternative reads better in a deck and collapses the first time someone asks which line it moves.\n\nThe hardest design problem was truthfulness. With no insurer feed, a card drifts the moment a customer endorses, renews or cancels directly with their insurer, and an insurance dashboard quietly showing stale coverage is worse than no dashboard at all. So I split the field set by volatility rather than by what looked good on a card. The listing card carries only fields locked at bind and unchangeable without a whole new policy: insurer, plan name, policy number, purchase date, document status. Everything volatile (premium, active-from, expiry, coverage) moved to the detail page under a disclaimer banner. Each card also shows when its document was last updated, colour-coded as it ages (green under 30 days, yellow to 90, red beyond), and past 90 days the card visibly decays and asks the customer whether something has changed. That prompt opens a WhatsApp thread to their own agent, pre-filled with the card's context, landing in the queue that agent already works. The record stays trustworthy through flagged corrections rather than through a sync we don't have.\n\nAdoption had two halves. Because customers buy logged out, the CRM captures email and phone at bind as the identifier; on first login, existing account or fresh sign-up on the same details, the card is already waiting. And a new left-nav item nobody visits is a dead surface, so I specced five comms layers instead of one: a line in the existing confirmation email, the nav item itself, an automated notification when documents land (the highest-value layer, since it arrives at the exact moment the customer has a reason to look), a manual agent fallback for when that delivery fails, and an in-product banner for people logged in for other reasons. One constraint held throughout: no change to the agent close ritual. Agents were never going to absorb a new step, and a plan that depends on them doing so is a plan that doesn't ship.\n\nThen the measurement, where the broken denominator bit. With no O2O cohort in analytics and a logged-in base I could only bound between 28,800 and 86,401 monthly unique users, percentage lift on a sub-slice would have been noise dressed as a result. So I anchored to the conservative lower bound and used absolute counts: 860 unique clickers on the nav item (3% of that base, the low end of what a secondary nav item earns) and 1,000 unique landers over 30 days. Then I wrote the kill rule before launch: both metrics have to miss and show no week-over-week growth, because a single-metric miss at this sample size isn't evidence of anything. Two hard guardrails sat underneath, both about not making things worse. Card data has to be accurate within five business days for 95% of customers, and if it drops below 90% for three days the outbound notification pauses itself rather than sending people to broken cards. And post-purchase agent contact must not rise: if the dashboard creates status questions instead of answering them, it has failed even if the click targets clear.\n\nScope moved twice, both times narrower. Term, term mortgage and health came out of Phase 1 so car could ship first and the freshness model could be proven on one product line before fanning out. Home loans went to KIV for a harder reason: rates shown to a customer are lender-controlled and may not be accurate, and loan documents are typically bank-internal with nothing customer-facing to download, so the entire 'preparing, then download' pattern doesn't map. That's a disclosure problem, not a build problem, and forcing it onto the pilot clock would have meant shipping something I couldn't stand behind.",
+      result:
+        "Honest status: this is specced and prototyped, not measured. Inside the pilot window I took it from pitch to a locked PRD, a working prototype of the listing and detail pages, and a technical architecture agreed with engineering (a read API over the existing deals data, a new documents table tracking the preparing-to-ready state, a front end that holds no data of its own) ready for the production build.\n\nWhat I can't claim is adoption. The 860 and 1,000 targets are targets, the 30-day measurement window runs post-launch, and I'd rather show the thresholds and the kill rule I committed to in advance than a number I don't have yet. The part I'd defend regardless of how those land: the surface tells customers how old its data is instead of pretending to be live, and it can be killed on evidence, because the criteria were fixed before anyone had an opinion about the outcome.",
+      quote:
+        "We have no insurer feed, so a card can go stale the moment a customer calls their insurer directly. Pretending otherwise was the one thing that would have broken trust. So the dashboard says what we sold you, when we last heard about it, and asks you to tell us if we're wrong.",
+    },
+  },
+
   // â”€â”€ Bubblegum Insurance (2020 – 2025) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     slug: "car-insurance-growth",

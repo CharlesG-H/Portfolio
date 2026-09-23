@@ -11,15 +11,34 @@ export function generateStaticParams() {
 }
 
 // Renders body copy as paragraphs, splitting on blank lines so multi-beat
-// narratives read as distinct paragraphs rather than one dense block.
+// narratives read as distinct paragraphs rather than one dense block. A block
+// whose lines all start with "- " becomes a list, so genuinely enumerable
+// things (sources, rules, schedules) don't get flattened into prose.
 function Prose({ text }: { text: string }) {
   return (
     <div className="flex flex-col gap-3">
-      {text.split("\n\n").map((para, i) => (
-        <p key={i} className="text-sm leading-relaxed text-foreground">
-          {para}
-        </p>
-      ))}
+      {text.split("\n\n").map((block, i) => {
+        const lines = block.split("\n");
+        return lines.every((l) => l.startsWith("- ")) ? (
+          <ul key={i} className="flex flex-col gap-1.5 pl-1">
+            {lines.map((line, j) => (
+              <li
+                key={j}
+                className="flex gap-2.5 text-sm leading-relaxed text-foreground"
+              >
+                <span aria-hidden className="text-muted">
+                  —
+                </span>
+                <span>{line.slice(2)}</span>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p key={i} className="text-sm leading-relaxed text-foreground">
+            {block}
+          </p>
+        );
+      })}
     </div>
   );
 }
